@@ -49,8 +49,7 @@ public class Creep implements IHuman {
             int nextRoomNumber = random.nextInt(avaliableRooms.size());
             Room nextRoom = avaliableRooms.get(nextRoomNumber);
             if (nextRoom.isOpen()) {
-                currentRoom = nextRoom;
-                return null;
+                return new Move(nextRoom);
             }
         }
     }
