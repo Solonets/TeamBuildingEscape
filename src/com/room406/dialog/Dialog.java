@@ -1,7 +1,7 @@
 package com.room406.dialog;
 
-import com.room406.Humans.Creep;
-import com.room406.Humans.Player;
+import com.room406.humans.Creep;
+import com.room406.humans.Player;
 import com.room406.inventory.InventoryItem;
 
 import java.util.List;
