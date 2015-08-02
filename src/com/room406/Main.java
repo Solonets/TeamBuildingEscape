@@ -37,6 +37,10 @@ public class Main {
         Player player = new Player("Серёжа");
         player.place(game.getInitialRoom());
 
+        for (Creep creep : game.getCreeps()) {
+            creep.place(game.getInitialRoom().getAvailableRooms().get(0));
+        }
+
         game.setPlayer(player);
 
         return game;

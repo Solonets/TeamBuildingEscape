@@ -64,6 +64,10 @@ public class Game implements Serializable {
         return String.format("%d:%02d", hours, minuts);
     }
 
+    public List<Creep> getCreeps() {
+        return creeps;
+    }
+
     public boolean model()
     {
         System.out.println("Сейчас " + tickToTime());
@@ -80,6 +84,7 @@ public class Game implements Serializable {
         {
             System.out.println(player.getPlace().getDescription());
         }
+
         for (InventoryItem r: player.getPlace().getInventoryItems())
         {
             System.out.println(r.getLocation());
@@ -89,7 +94,19 @@ public class Game implements Serializable {
         {
             System.out.print(r.getName() + ", ");
         }
+        for (Creep creep : creeps) {
+            if (creep.getCurrentRoom() == player.getPlace()) {
+                System.out.println("Сдесь находится " + creep);
+            }
+        }
+
         System.out.println();
+        for (Creep creep: creeps) {
+            IAction action = creep.getAction();
+            if (action instanceof Move) {
+                creep.place(((Move) action).getRoom());
+            }
+        }
         return true;
     }
     public void execute()

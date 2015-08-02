@@ -24,6 +24,9 @@ public class Creep implements IHuman, Serializable {
     private int influence;
     private boolean isTb = false;
 
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 
     public int getInfluence() {
         return influence;
@@ -94,5 +97,10 @@ public class Creep implements IHuman, Serializable {
     @Override
     public void place(Room room) {
         currentRoom = room;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
