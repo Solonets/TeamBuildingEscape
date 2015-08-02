@@ -1,6 +1,7 @@
 package com.room406;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class Player implements IHuman {
     private Room currentRoom;
     private Scanner scanner = new Scanner(System.in);
     private Set<Room> visitedRooms;
+    private List<InventoryItem> inventory;
 
     public Player(String name) {
         this.name = name;
@@ -30,14 +32,13 @@ public class Player implements IHuman {
             System.out.println(currentRoom.getDescription());
         }
         String command = scanner.next();
-        switch (command) {
-            case "инвентарь":
-                break;
-            case "идти":
-                break;
-            default:
-                System.out.println("Я не понял, чего ты хочешь!");
-                break;
+        if (command.equals(Message.SHOW_INVENTORY)) {
+        } else if (command.equals(Message.ACTION_GO)) {
+        } else if (command.equals(Message.USE)) {
+        } else if (command.equals(Message.PICK)) {
+        } else {
+            System.out.println("Я не понял, чего ты хочешь!");
+
         }
         return null;
     }
