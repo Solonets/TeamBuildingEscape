@@ -16,6 +16,8 @@ import java.util.List;
 public class Game implements Serializable {
     private transient final String roomsIni = "Rooms.ini";
     private transient Player player = null;
+    private final int MINUTES_PER_TICK = 5;
+    private int tick = 0;
     private List<Creep> creeps;
 
     public Room getInitialRoom() {
@@ -45,7 +47,10 @@ public class Game implements Serializable {
 
     public void control()
     {
-        IAction action = player.getAction();
+        IAction action;
+        do {
+            action = player.getAction();
+        } while (action == null);
         if (action instanceof Move)
         {
             Move move = (Move)action;
@@ -54,6 +59,7 @@ public class Game implements Serializable {
     }
     public boolean model()
     {
+        System.out.println("Сейчас " + tick + " тик");
         if (!player.getPlace().isVisited())
         {
             if (player.getPlace().isGeneratable())
@@ -84,6 +90,7 @@ public class Game implements Serializable {
         while (model())
         {
             control();
+            tick++;
         }
     }
 }
