@@ -5,7 +5,7 @@ package com.room406;
  */
 public enum Message {
     ACTION_GO("идти"),
-    SHOW_INVENTORY("инвентарь "),
+    SHOW_INVENTORY("инвентарь"),
     INVENTORY("Инвентарь: "),
     USE("использовать"),
     PICK("взять"),
