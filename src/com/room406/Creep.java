@@ -14,6 +14,8 @@ public class Creep implements IHuman {
     private List<Question> tbQuestions;
     private List<Question> notTbQuestions;
     private int influence;
+    private boolean isTb = false;
+
 
     public int getInfluence() {
         return influence;
@@ -43,6 +45,13 @@ public class Creep implements IHuman {
 
     public void addNotTbQuestion(Question question) {
         notTbQuestions.add(question);
+    }
+
+    public List<Question> getQuestions() {
+        if (isTb) {
+            return tbQuestions;
+        }
+        return notTbQuestions;
     }
 
     @Override
