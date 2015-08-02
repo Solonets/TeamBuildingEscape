@@ -25,12 +25,18 @@ public class Player implements IHuman {
 
     @Override
     public Action move() {
-        if (visitedRooms.contains(currentRoom)) {
-
+        if (!visitedRooms.contains(currentRoom)) {
+            visitedRooms.add(currentRoom);
+            System.out.println(currentRoom.getDescription());
         }
         String command = scanner.next();
         switch (command) {
             case "инвентарь":
+                break;
+            case "идти":
+                break;
+            default:
+                System.out.println("Я не понял, чего ты хочешь!");
                 break;
         }
         return null;
