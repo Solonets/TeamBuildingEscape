@@ -14,6 +14,7 @@ public class Player implements IHuman {
     private Scanner scanner = new Scanner(System.in);
     private Set<Room> visitedRooms;
     private List<InventoryItem> inventory;
+    private boolean isHungry;
 
     public Player(String name) {
         this.name = name;
@@ -21,8 +22,17 @@ public class Player implements IHuman {
     }
 
     @Override
-    public void onEvent(Event event) {
-
+    public boolean onEvent(Event event) {
+        if (event instanceof EatEvent) {
+            if (event.getType().equals(Event.EventType.STARTED)) {
+                isHungry = true;
+            } else {
+                if (isHungry) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override
@@ -33,11 +43,17 @@ public class Player implements IHuman {
         }
         String command = scanner.next();
         if (command.equals(Message.SHOW_INVENTORY)) {
+            System.out.println(Message.INVENTORY);
+            for (InventoryItem item : inventory) {
+                System.out.println(item);
+            }
         } else if (command.equals(Message.ACTION_GO)) {
         } else if (command.equals(Message.USE)) {
         } else if (command.equals(Message.PICK)) {
+            System.out.println(Message.PICKED_INVENTORY);
+
         } else {
-            System.out.println("Я не понял, чего ты хочешь!");
+            System.out.println(Message.ERROR);
 
         }
         return null;

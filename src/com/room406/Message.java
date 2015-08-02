@@ -5,9 +5,12 @@ package com.room406;
  */
 public enum Message {
     ACTION_GO("идти"),
-    SHOW_INVENTORY("инвентарь"),
-    USE("использовать"),
-    PICK("взять");
+    SHOW_INVENTORY("инвентарь "),
+    INVENTORY("Инвентарь: "),
+    USE("использовать "),
+    PICK("взять "),
+    PICKED_INVENTORY("Поднят инвентарь. "),
+    ERROR("Я не понял, что ты хочешь! ");
 
     private String message;
 
