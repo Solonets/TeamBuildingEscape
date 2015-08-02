@@ -12,7 +12,7 @@ public enum Message {
     PICKED_INVENTORY("Поднят инвентарь. "),
     WATCH_AROUND("Осмотреться"),
     PICED("Взял"),
-    ERROR("Я не понял, что ты хочешь! ");
+    ERROR("Я тебя не понял ");
 
     private String message;
 
