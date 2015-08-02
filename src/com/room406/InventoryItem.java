@@ -1,9 +1,11 @@
 package com.room406;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 02.08.2015.
  */
-public class InventoryItem {
+public class InventoryItem implements Serializable {
     private String name;
     private String accusative;
     private int influence;

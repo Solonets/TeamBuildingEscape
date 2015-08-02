@@ -1,12 +1,13 @@
 package com.room406;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ������ on 02.08.2015.
  */
-public class Question {
+public class Question implements Serializable {
     private String message;
     private List<Answer> answers;
 

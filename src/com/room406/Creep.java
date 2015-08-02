@@ -1,5 +1,6 @@
 package com.room406;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,10 +8,10 @@ import java.util.Random;
 /**
  * Created by vic on 02.08.15.
  */
-public class Creep implements IHuman {
+public class Creep implements IHuman, Serializable {
     private String name;
     private Room currentRoom;
-    private Random random = new Random();
+    private transient Random random = new Random();
     private List<Question> tbQuestions;
     private List<Question> notTbQuestions;
     private int influence;
@@ -68,6 +69,9 @@ public class Creep implements IHuman {
 
     @Override
     public IAction getAction() {
+        if (random == null) {
+            random = new Random();
+        }
         while (true) {
             List<Room> avaliableRooms = currentRoom.getAvailableRooms();
             avaliableRooms.add(currentRoom);

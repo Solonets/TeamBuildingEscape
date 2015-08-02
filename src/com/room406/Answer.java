@@ -1,12 +1,13 @@
 package com.room406;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ������ on 02.08.2015.
  */
-public class Answer {
+public class Answer implements Serializable {
     private String message;
     private InventoryItem dependency;
     private int result;
