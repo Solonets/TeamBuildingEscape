@@ -3,9 +3,9 @@ package com.room406.humans;
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.dialog.Question;
+import com.room406.rooms.Room;
 import com.room406.events.Event;
 import com.room406.events.TeambuildingEvent;
-import com.room406.rooms.Room;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,9 +24,6 @@ public class Creep implements IHuman, Serializable {
     private int influence;
     private boolean isTb = false;
 
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
 
     public int getInfluence() {
         return influence;
@@ -97,10 +94,5 @@ public class Creep implements IHuman, Serializable {
     @Override
     public void place(Room room) {
         currentRoom = room;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }
