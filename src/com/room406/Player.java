@@ -48,6 +48,12 @@ public class Player implements IHuman {
                 System.out.println(item);
             }
         } else if (command.equals(Message.ACTION_GO)) {
+            String roomString = scanner.nextLine();
+            for (Room room: currentRoom.getAvailableRooms()) {
+                if (room.isOpen() && roomString.contains(room.getName())) {
+                    return new Move(room);
+                }
+            }
         } else if (command.equals(Message.USE)) {
         } else if (command.equals(Message.PICK)) {
             System.out.println(Message.PICKED_INVENTORY);

@@ -1,10 +1,14 @@
 package com.room406;
 
 /**
- * Created by Наська on 02.08.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 02.08.2015.
  */
 public class Move implements IAction {
     private Room room;
+
+    public Move(Room room) {
+        this.room = room;
+    }
 
     public Room getRoom() {
         return room;
