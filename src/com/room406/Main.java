@@ -107,7 +107,7 @@ public class Main {
         {
             if (i != 406)
             {
-                Room r = new Room("Номер " + i, "", "", true, true);
+                Room r = new Room("Номер " + i, "Это чья-то комната, она почему-то была открыта", "Это чья-то комната", true, true);
                 r.pushAvailableRoom(holeCampus);
                 holeCampus.pushAvailableRoom(r);
             }
