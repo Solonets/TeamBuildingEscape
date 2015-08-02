@@ -9,10 +9,12 @@ public class InventoryItem implements Serializable {
     private String name;
     private String accusative;
     private int influence;
+    private String pickMessage;
     private String location;
 
-    public InventoryItem(String name, String accusative, int influence, String location) {
+    public InventoryItem(String name, String accusative, String pickMessage, int influence, String location) {
         this.name = name;
+        this.pickMessage = pickMessage;
         this.accusative = accusative;
         this.influence = influence;
         this.location = location;
@@ -34,6 +36,10 @@ public class InventoryItem implements Serializable {
     {
         return this.name.toLowerCase().equals(name.toLowerCase())
                 || this.accusative.toLowerCase().equals(name.toLowerCase());
+    }
+    public String getPickMessage()
+    {
+        return this.pickMessage + " (+" + this.getInfluence() + " к влиянию)";
     }
     public String getLocation()
     {

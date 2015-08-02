@@ -7,7 +7,7 @@ import com.room406.inventory.InventoryItem;
  */
 public class Phone extends InventoryItem {
     public Phone() {
-        super("телефон", "телефон", 0, "%s");
+        super("телефон", "телефон", "Твой телефон, он разряжен", 0, "%s");
     }
 
     public void use() {
