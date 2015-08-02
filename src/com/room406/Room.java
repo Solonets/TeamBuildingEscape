@@ -7,12 +7,13 @@ import java.util.List;
  * Created by user on 02.08.2015.
  */
 public class Room {
-    String name;
-    String history;
-    String description;
-    boolean isOpen;
-    List<InventoryItem> inventoryItems;
-    List<Room> availableRooms;
+    private String name;
+    private String history;
+    private String description;
+    private boolean isOpen;
+    private boolean isVisited;
+    private List<InventoryItem> inventoryItems;
+    private List<Room> availableRooms;
     public Room(String name, String history, String description, boolean isOpen) {
         this.name = name;
         this.history = history;
@@ -21,8 +22,15 @@ public class Room {
         inventoryItems = new ArrayList<InventoryItem>();
         availableRooms = new ArrayList<Room>();
     }
-
-    List<Room> getAvailableRooms()
+    public void pushAvailableRoom(Room room)
+    {
+        availableRooms.add(room);
+    }
+    public void pushItem(InventoryItem item)
+    {
+        inventoryItems.add(item);
+    }
+    public List<Room> getAvailableRooms()
     {
         return availableRooms;
     }
@@ -44,10 +52,20 @@ public class Room {
         return history;
     }
 
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setVisited() {
+        this.isVisited = true;
+    }
+
     public List<InventoryItem> getInventoryItems() {
-        List result = new ArrayList();
-        result.addAll(inventoryItems);
-        inventoryItems.clear();
-        return result;
+        return inventoryItems;
+    }
+    public boolean getItem(InventoryItem a)
+    {
+        inventoryItems.remove(a);
+        return true;
     }
 }
