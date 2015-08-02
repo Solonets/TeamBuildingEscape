@@ -12,7 +12,6 @@ public class Player implements IHuman {
     private String name;
     private Room currentRoom;
     private Scanner scanner = new Scanner(System.in);
-    private Set<Room> visitedRooms;
     private List<InventoryItem> inventory;
     private boolean isHungry;
     private int influence;
@@ -27,7 +26,6 @@ public class Player implements IHuman {
 
     public Player(String name) {
         this.name = name;
-        visitedRooms = new HashSet<Room>();
     }
 
     @Override
@@ -46,10 +44,7 @@ public class Player implements IHuman {
 
     @Override
     public IAction getAction() {
-        if (!visitedRooms.contains(currentRoom)) {
-            visitedRooms.add(currentRoom);
-            System.out.println(currentRoom.getHistory());
-        }
+        System.out.print(">> ");
         String command = scanner.next().toLowerCase();
         if (command.equals(Message.SHOW_INVENTORY)) {
             System.out.println(Message.INVENTORY);
