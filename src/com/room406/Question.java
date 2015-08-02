@@ -1,5 +1,6 @@
 package com.room406;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,7 @@ public class Question {
 
     public Question(String message) {
         this.message = message;
+        this.answers = new ArrayList<Answer>();
     }
 
     public String getMessage() {

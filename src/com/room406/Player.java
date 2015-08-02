@@ -1,9 +1,6 @@
 package com.room406;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by vic on 02.08.15.
@@ -25,6 +22,7 @@ public class Player implements IHuman {
     }
 
     public Player(String name) {
+        this.inventory = new ArrayList<>();
         this.name = name;
     }
 
