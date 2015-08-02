@@ -14,18 +14,20 @@ public class Dialog {
         Question question = questions.get(random.nextInt(questions.size()));
         System.out.println(question);
         List<Answer> answers = question.getAnswers();
-        Answer answer = answers.get(lastAnswer++);
-        int inventoryNeeded = 0;
+        Answer answer = null;
+        int inventoryNeeded = 1;
         int outcome = 0;
         int playerInfluence = 0;
-        List<InventoryItem> usefulThings = answer.getUsefulThings();
-        while (inventoryNeeded == usefulThings.size()) {
+        List<InventoryItem> usefulThings;
+        while (inventoryNeeded > 0) {
+            answer = answers.get(lastAnswer++);
+            usefulThings = answer.getUsefulThings();
+            inventoryNeeded = answer.getUsefulThings().size();
             for (int i = 0; i < usefulThings.size(); i++) {
                 if (player.getInventory().contains(usefulThings.get(i))) {
-                    inventoryNeeded++;
+                    inventoryNeeded--;
                 }
             }
-            answer = answers.get(lastAnswer++);
         }
         System.out.println(answer);
         playerInfluence = player.getInfluence() + answer.getResult();
