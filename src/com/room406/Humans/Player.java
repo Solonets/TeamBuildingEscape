@@ -36,6 +36,7 @@ public class Player implements IHuman {
 
     @Override
     public boolean onEvent(Event event) {
+        System.out.println(event);
         if (event instanceof EatEvent) {
             if (event.getType().equals(Event.EventType.STARTED)) {
                 isHungry = true;
@@ -76,7 +77,7 @@ public class Player implements IHuman {
                 if (item.equals(itemString)) {
                     inventory.add(item);
                     currentRoom.getItem(item);
-                    System.out.println(Message.PICED);
+                    System.out.println(item.getPickMessage());
                     break;
                 }
             }
