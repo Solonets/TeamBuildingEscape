@@ -7,29 +7,33 @@ import java.util.List;
  */
 public class Answer {
     private String message;
-    private List<InventoryItem> usefulThings;
+    private InventoryItem dependency;
     private int result;
     private String answer;
+
     public Answer(String message, int result, String answer) {
         this.message = message;
         this.result = result;
         this.answer = answer;
     }
 
-    public List<InventoryItem> getUsefulThings() {
-        return usefulThings;
+    public InventoryItem getDependency() {
+        return dependency;
     }
 
-    public void usefulThing(InventoryItem item) {
-        usefulThings.add(item);
+    public void setDependency(InventoryItem dependency) {
+        this.dependency = dependency;
     }
 
-    public int getResult() {
+    public String getMessage() {
+        return message;
+    }
+
+    public int getInfluence() {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return String.format("- %s\n" + "- %s", message, answer);
+    public String getAnswer() {
+        return answer;
     }
 }

@@ -24,15 +24,50 @@ public class Game {
         Room holeUniversityFloor4 = new Room("4 этаж университета", "История", "Описание", true);
         room.pushAvailableRoom(holeCampus);
 
-        Creep lena = new Creep("Lena");
+        Creep lena = new Creep("Лена");
+
+        InventoryItem documents = new InventoryItem("Документы", 10000);
         Question q1 = new Question("Ты почену не на тимбилдинге?");
-        Answer a1 = new Answer("Ну... так вышло", -10, "Пойдем-ка, я тебя проведу");
+        Answer a1 = new Answer("Ну... так вышло", -10, "Пойдем-ка, я тебя провожу");
         q1.addAnswer(a1);
-        Answer a2 = new Answer("Не замеил, что он начался", 0, "Пойдем-ка, я тебя проведу");
+        Answer a2 = new Answer("Не замеил, что он начался", 0, "Пойдем-ка, я тебя провожу");
         q1.addAnswer(a2);
-        Answer a3 = new Answer("Несу документы сдавать", 10, "Пойдем-ка, я тебя проведу");
+        Answer a3 = new Answer("Несу документы сдавать", 10, "Давай я сама отнесу");
+        a3.setDependency(documents);
         q1.addAnswer(a3);
+        Answer a4 = new Answer("<Претвапиться ниндзя и сделать кувырок>", -20, "... Брысь на тимбилдинг");
         lena.addTbQuestion(q1);
+
+        Question q2 = new Question("Привет");
+        a1 = new Answer("Привет", 10, "");
+        q2.addAnswer(a1);
+        lena.addNotTbQuestion(q2);
+
+        Creep sasha = new Creep("Саша");
+
+        q1 = new Question("Идешь на тимбилдинг сегодня?");
+        a1 = new Answer("Ну ... я кодить собирался", -20, "Идешь значит!");
+        q1.addAnswer(a1);
+        a2 = new Answer("Я документы несу, не знаю когда освобажусь", -10, "Ну ты постарайся прийти, а то мы собирались ...");
+        q1.addAnswer(a2);
+        q2 = new Question("Привет");
+        a1 = new Answer("Привет", 10, "");
+        q2.addAnswer(a1);
+        sasha.addNotTbQuestion(q1);
+        sasha.addNotTbQuestion(q2);
+
+        Creep timur = new Creep("Тимур");
+        q1 = new Question("Ты почену не на тимбилдинге?");
+        a1 = new Answer("У нас в общаге крыша протекает", 10000, "Мы работаем над этим");
+        q1.addAnswer(a1);
+        a2 = new Answer("Я хотел чего-нибудь поделать", -10, "Иди на тимбилдинг");
+        q1.addAnswer(a2);
+        a3 = new Answer("Я документы несу", 20, "Хорошо");
+        q1.addAnswer(a3);
+        q2 = new Question("Привет");
+        a1 = new Answer("Привет", 10, "");
+        q2.addAnswer(a1);
+
 
         holeCampus.pushAvailableRoom(room);
         for (int i = 400; i <= 410; i++)
