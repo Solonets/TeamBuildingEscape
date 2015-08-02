@@ -39,7 +39,7 @@ public class Player implements IHuman {
     public IAction getAction() {
         if (!visitedRooms.contains(currentRoom)) {
             visitedRooms.add(currentRoom);
-            System.out.println(currentRoom.getDescription());
+            System.out.println(currentRoom.getHistory());
         }
         String command = scanner.next().toLowerCase();
         if (command.equals(Message.SHOW_INVENTORY)) {
@@ -55,6 +55,8 @@ public class Player implements IHuman {
                 }
             }
         } else if (command.equals(Message.USE)) {
+        } else if (command.equals(Message.WATCH_AROUND)) {
+            System.out.println(currentRoom.getDescription());
         } else if (command.equals(Message.PICK)) {
             System.out.println(Message.PICKED_INVENTORY);
             inventory.addAll(currentRoom.getInventoryItems());
