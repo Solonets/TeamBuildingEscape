@@ -15,7 +15,7 @@ public class Game {
     private Player player = null;
     public Game() {
         Room room = new Room("Комната", "Ты находишься у себя в комнате. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
-                "Тебе еще не выдали задание ты можешь получить его у своего TA.", "Описание", true);
+                " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Описание", true);
         Room holeCampus = new Room("Кампус", "История", "Описание", true);
         Room holeUniversityFloor1 = new Room("1 этаж общежития", "История", "Описание", true);
         Room holeUniversityFloor2 = new Room("2 этаж общежития", "История", "Описание", true);
