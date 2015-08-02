@@ -5,4 +5,8 @@ package com.room406;
  */
 public class Move implements IAction {
     private Room room;
+
+    public Room getRoom() {
+        return room;
+    }
 }

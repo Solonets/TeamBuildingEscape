@@ -5,4 +5,8 @@ package com.room406;
  */
 public class Sleep implements IAction{
     private int duration;
+
+    public int getDuration() {
+        return duration;
+    }
 }
