@@ -20,7 +20,7 @@ public class Game {
         Room holeUniversityFloor1 = new Room("1 этаж общежития", "История", "Описание", true);
         Room holeUniversityFloor2 = new Room("2 этаж общежития", "История", "Описание", true);
         Room holeUniversityFloor3 = new Room("3 этаж общежития", "История", "Описание", true);
-        Room university317 = new Room("3 этаж общежития", "TA нет в университете. Зато он есть в Телеграме.", "Описание", true);
+        Room university317 = new Room("3 этаж общежития", "TA нет в университете. Зато он есть в Telegram.", "Описание", true);
         Room holeUniversityFloor4 = new Room("4 этаж общежития", "История", "Описание", true);
         room.pushAvailableRoom(holeCampus);
 
