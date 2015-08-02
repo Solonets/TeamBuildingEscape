@@ -7,10 +7,10 @@ public enum Message {
     ACTION_GO("идти"),
     SHOW_INVENTORY("инвентарь "),
     INVENTORY("Инвентарь: "),
-    USE("использовать "),
-    PICK("взять "),
+    USE("использовать"),
+    PICK("взять"),
     PICKED_INVENTORY("Поднят инвентарь. "),
-    WATCH_AROUND("Осмотреться "),
+    WATCH_AROUND("Осмотреться"),
     ERROR("Я не понял, что ты хочешь! ");
 
     private String message;

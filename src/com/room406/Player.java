@@ -46,22 +46,22 @@ public class Player implements IHuman {
     public IAction getAction() {
         System.out.print(">> ");
         String command = scanner.next().toLowerCase();
-        if (command.equals(Message.SHOW_INVENTORY)) {
+        if (command.equals(Message.SHOW_INVENTORY.toString().toLowerCase())) {
             System.out.println(Message.INVENTORY);
             for (InventoryItem item : inventory) {
                 System.out.println(item);
             }
-        } else if (command.equals(Message.ACTION_GO)) {
+        } else if (command.equals(Message.ACTION_GO.toString().toLowerCase())) {
             String roomString = scanner.nextLine().toLowerCase();
             for (Room room: currentRoom.getAvailableRooms()) {
                 if (room.isOpen() && roomString.contains(room.getName())) {
                     return new Move(room);
                 }
             }
-        } else if (command.equals(Message.USE)) {
-        } else if (command.equals(Message.WATCH_AROUND)) {
+        } else if (command.equals(Message.USE.toString().toLowerCase())) {
+        } else if (command.equals(Message.WATCH_AROUND.toString().toLowerCase())) {
             System.out.println(currentRoom.getDescription());
-        } else if (command.equals(Message.PICK)) {
+        } else if (command.equals(Message.PICK.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase();
             for (InventoryItem item: currentRoom.getInventoryItems()) {
                 if (item.toString().equals(itemString)) {
