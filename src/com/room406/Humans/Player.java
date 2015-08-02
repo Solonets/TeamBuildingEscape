@@ -76,10 +76,12 @@ public class Player implements IHuman {
                 if (item.equals(itemString)) {
                     inventory.add(item);
                     currentRoom.getItem(item);
+                    System.out.println(Message.PICED);
                     break;
                 }
             }
         } else {
+            scanner.nextLine();
             System.out.println(Message.ERROR);
         }
         return null;
