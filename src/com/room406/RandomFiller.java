@@ -20,11 +20,11 @@ public class RandomFiller {
         String[] accusative = {"ручку", "блокнот", "футболку", "толстовку", "чеснок"};
         int[] influences = {1, 2, 5, 10, 25};
         int i = 0;
-        while(random.nextInt(2) == 1 && i <= 4) {i++;}
+        while(random.nextInt(3) <= 1 && i < 4) {i++;}
         return new InventoryItem(items[i], accusative[i], influences[i], locations[random.nextInt(locations.length)]);
     }
     static void fillRandomInventory(Room room) {
-        while (random.nextInt(3) == 1)
+        while (random.nextInt(2) == 1)
         {
             room.pushItem(getRandomInventory());
         }

@@ -56,6 +56,10 @@ public class Game implements Serializable {
     {
         if (!player.getPlace().isVisited())
         {
+            if (player.getPlace().isGeneratable())
+            {
+                RandomFiller.fillRandomInventory(player.getPlace());
+            }
             System.out.println(player.getPlace().getHistory());
             player.getPlace().setVisited();
         }

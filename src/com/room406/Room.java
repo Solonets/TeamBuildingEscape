@@ -13,13 +13,15 @@ public class Room implements Serializable {
     private String description;
     private boolean isOpen;
     private boolean isVisited;
+    private boolean isGeneratable;
     private List<InventoryItem> inventoryItems;
     private List<Room> availableRooms;
-    public Room(String name, String history, String description, boolean isOpen) {
+    public Room(String name, String history, String description, boolean isOpen, boolean isGeneratable) {
         this.name = name;
         this.history = history;
         this.description = description;
         this.isOpen = isOpen;
+        this.isGeneratable = isGeneratable;
         inventoryItems = new ArrayList<InventoryItem>();
         availableRooms = new ArrayList<Room>();
     }
@@ -68,5 +70,9 @@ public class Room implements Serializable {
     {
         inventoryItems.remove(a);
         return true;
+    }
+
+    public boolean isGeneratable() {
+        return isGeneratable;
     }
 }

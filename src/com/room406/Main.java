@@ -40,6 +40,13 @@ public class Main {
     public static void createGame() {
         Game game = new Game();
         Room room = new Room("Номер 406", "Ты находишься в комнате 406. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
+                " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Это твоя комната", true, true);
+        Room holeCampus = new Room("Кампус", "История", "Описание", true, false);
+        Room holeUniversityFloor1 = new Room("1 этаж университета", "История", "Описание", true, false);
+        Room holeUniversityFloor2 = new Room("2 этаж университета", "История", "Описание", true, false);
+        Room holeUniversityFloor3 = new Room("3 этаж университета", "История", "Описание", true, false);
+        Room university317 = new Room("Кабинет 317", "TA нет в университете. Зато он есть в Telegram.", "Описание", true, true);
+        Room holeUniversityFloor4 = new Room("4 этаж университета", "История", "Описание", true, true);
                 " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Это твоя комната", true);
         Room holeCampus = new Room("Кампус", "По кампусу не ходят организаторы, здесь ты в безопасности", "Длинный коридор с дверьми в комнаты", true);
         Room holeUniversityFloor1 = new Room("1 этаж университета", "На первом этаже находится столовая", "Просторное помещение с двумя основными кабинетами для лекций", true);
@@ -102,9 +109,8 @@ public class Main {
         {
             if (i != 406)
             {
-                Room r = new Room("Номер " + i, "", "", true);
+                Room r = new Room("Номер " + i, "", "", true, true);
                 r.pushAvailableRoom(holeCampus);
-                RandomFiller.fillRandomInventory(r);
                 holeCampus.pushAvailableRoom(r);
             }
         }
