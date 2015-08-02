@@ -14,17 +14,26 @@ public class Game {
     private final String roomsIni = "Rooms.ini";
     private Player player = null;
     public Game() {
-        Room room = new Room("Комната", "Ты находишься у себя в комнате. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
-                " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Описание", true);
+        Room room = new Room("Номер 406", "Ты находишься в комнате 406. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
+                " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Это твоя комната", true);
         Room holeCampus = new Room("Кампус", "История", "Описание", true);
-        Room holeUniversityFloor1 = new Room("1 этаж общежития", "История", "Описание", true);
-        Room holeUniversityFloor2 = new Room("2 этаж общежития", "История", "Описание", true);
-        Room holeUniversityFloor3 = new Room("3 этаж общежития", "История", "Описание", true);
-        Room university317 = new Room("317", "TA нет в университете. Зато он есть в Telegram.", "Описание", true);
-        Room holeUniversityFloor4 = new Room("4 этаж общежития", "История", "Описание", true);
+        Room holeUniversityFloor1 = new Room("1 этаж университета", "История", "Описание", true);
+        Room holeUniversityFloor2 = new Room("2 этаж университета", "История", "Описание", true);
+        Room holeUniversityFloor3 = new Room("3 этаж университета", "История", "Описание", true);
+        Room university317 = new Room("Кабинет 317", "TA нет в университете. Зато он есть в Telegram.", "Описание", true);
+        Room holeUniversityFloor4 = new Room("4 этаж университета", "История", "Описание", true);
         room.pushAvailableRoom(holeCampus);
-
         holeCampus.pushAvailableRoom(room);
+        for (int i = 400; i <= 410; i++)
+        {
+            if (i != 406)
+            {
+                Room r = new Room("Номер " + i, "", "", true);
+                r.pushAvailableRoom(holeCampus);
+                RandomFiller.fillRandomInventory(r);
+                holeCampus.pushAvailableRoom(r);
+            }
+        }
         holeCampus.pushAvailableRoom(holeUniversityFloor1);
 
         holeUniversityFloor1.pushAvailableRoom(holeCampus);
@@ -66,7 +75,14 @@ public class Game {
             System.out.println(player.getPlace().getHistory());
             player.getPlace().setVisited();
         }
-        System.out.println(player.getPlace().getDescription());
+        else
+        {
+            System.out.println(player.getPlace().getDescription());
+        }
+        for (InventoryItem r: player.getPlace().getInventoryItems())
+        {
+            System.out.println(r.getLocation());
+        }
         System.out.print("Доступные локации: ");
         for (Room r: player.getPlace().getAvailableRooms())
         {
