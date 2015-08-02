@@ -45,6 +45,9 @@ public class Room {
     }
 
     public List<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+        List result = new ArrayList();
+        result.addAll(inventoryItems);
+        inventoryItems.clear();
+        return result;
     }
 }
