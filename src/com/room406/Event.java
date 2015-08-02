@@ -1,12 +1,12 @@
 package com.room406;
 
 /**
- * Created by Наська on 02.08.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 02.08.2015.
  */
 public abstract class Event {
 
     public enum EventType {
-        STARTED("начался"), FINISHED("закончился");
+        STARTED("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"), FINISHED("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         String name;
 
         EventType(String name) {
@@ -30,6 +30,10 @@ public abstract class Event {
 
     @Override
     public String toString() {
-        return String.format("Сейчас %d, %s %s", tick, name, type);
+        return String.format("пїЅпїЅпїЅпїЅпїЅпїЅ %d, %s %s", tick, name, type);
+    }
+
+    public EventType getType() {
+        return type;
     }
 }

@@ -17,12 +17,12 @@ public class Creep implements IHuman {
 
 
     @Override
-    public void onEvent(Event event) {
-
+    public boolean onEvent(Event event) {
+        return true;
     }
 
     @Override
-    public Action move() {
+    public IAction move() {
         while (true) {
             List<Room> avaliableRooms = currentRoom.getAvailableRooms();
             avaliableRooms.add(currentRoom);
