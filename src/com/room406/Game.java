@@ -57,9 +57,16 @@ public class Game implements Serializable {
             player.place(move.getRoom());
         }
     }
+
+    private String tickToTime() {
+        int hours = (8 + tick / 12) % 24;
+        int minuts = (tick % 12) * 5;
+        return String.format("%d:%02d", hours, minuts);
+    }
+
     public boolean model()
     {
-        System.out.println("Сейчас " + tick + " тик");
+        System.out.println("Сейчас " + tickToTime());
         if (!player.getPlace().isVisited())
         {
             if (player.getPlace().isGeneratable())
