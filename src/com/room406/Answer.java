@@ -17,7 +17,7 @@ public class Answer {
         this.answer = answer;
     }
 
-    public void addDependency(InventoryItem item) {
+    public void usefulThing(InventoryItem item) {
         usefulThings.add(item);
     }
 }
