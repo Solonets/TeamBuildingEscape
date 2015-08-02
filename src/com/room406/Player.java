@@ -79,4 +79,8 @@ public class Player implements IHuman {
     public void place(Room room) {
         currentRoom = room;
     }
+
+    public Room getPlace() {
+        return currentRoom;
+    }
 }
