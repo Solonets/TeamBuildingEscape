@@ -11,8 +11,11 @@ public class Creep implements IHuman {
     private String name;
     private Room currentRoom;
     private Random random = new Random();
-    private List<Question> questions;
+    private List<Question> tbQuestions;
+    private List<Question> notTbQuestions;
     private int influence;
+    private boolean isTb = false;
+
 
     public int getInfluence() {
         return influence;
@@ -24,15 +27,31 @@ public class Creep implements IHuman {
 
     public Creep(String name) {
         this.name = name;
-        this.questions = new ArrayList<>();
+        this.tbQuestions = new ArrayList<>();
+        this.notTbQuestions = new ArrayList<>();
+    }
+
+    public List<Question> getTbQuestions() {
+        return tbQuestions;
+    }
+
+    public void addTbQuestion(Question question) {
+        tbQuestions.add(question);
+    }
+
+    public List<Question> getNotTbQuestions() {
+        return notTbQuestions;
+    }
+
+    public void addNotTbQuestion(Question question) {
+        notTbQuestions.add(question);
     }
 
     public List<Question> getQuestions() {
-        return questions;
-    }
-
-    public void addQuestion(Question question) {
-        questions.add(question);
+        if (isTb) {
+            return tbQuestions;
+        }
+        return notTbQuestions;
     }
 
     @Override
