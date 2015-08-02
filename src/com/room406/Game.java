@@ -24,6 +24,16 @@ public class Game {
         Room holeUniversityFloor4 = new Room("4 этаж общежития", "История", "Описание", true);
         room.pushAvailableRoom(holeCampus);
 
+        Creep lena = new Creep("Lena");
+        Question q1 = new Question("Ты почену не на тимбилдинге?");
+        Answer a1 = new Answer("Ну... так вышло", -10, "Пойдем-ка, я тебя проведу");
+        q1.addAnswer(a1);
+        Answer a2 = new Answer("Не замеил, что он начался", 0, "Пойдем-ка, я тебя проведу");
+        q1.addAnswer(a2);
+        Answer a3 = new Answer("Несу документы сдавать", 10, "Пойдем-ка, я тебя проведу");
+        q1.addAnswer(a3);
+        lena.addTbQuestion(q1);
+
         holeCampus.pushAvailableRoom(room);
         holeCampus.pushAvailableRoom(holeUniversityFloor1);
 

@@ -52,6 +52,9 @@ public class Player implements IHuman {
                 System.out.println(item);
             }
         } else if (command.equals(Message.ACTION_GO.toString().toLowerCase())) {
+            if (getInventory().isEmpty()) {
+
+            }
             String roomString = scanner.nextLine().toLowerCase();
             for (Room room: currentRoom.getAvailableRooms()) {
                 if (room.isOpen() && roomString.contains(room.getName().toLowerCase())) {
@@ -73,6 +76,10 @@ public class Player implements IHuman {
             System.out.println(Message.ERROR);
         }
         return null;
+    }
+
+    public List<InventoryItem> getInventory() {
+        return inventory;
     }
 
     @Override
