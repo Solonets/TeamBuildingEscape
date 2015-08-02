@@ -15,6 +15,15 @@ public class Player implements IHuman {
     private Set<Room> visitedRooms;
     private List<InventoryItem> inventory;
     private boolean isHungry;
+    private int influence;
+
+    public int getInfluence() {
+        return influence;
+    }
+
+    public void setInfluence(int influence) {
+        this.influence = influence;
+    }
 
     public Player(String name) {
         this.name = name;

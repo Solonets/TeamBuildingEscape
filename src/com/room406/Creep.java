@@ -12,6 +12,15 @@ public class Creep implements IHuman {
     private Room currentRoom;
     private Random random = new Random();
     private List<Question> questions;
+    private int influence;
+
+    public int getInfluence() {
+        return influence;
+    }
+
+    public void setInfluence(int influence) {
+        this.influence = influence;
+    }
 
     public Creep(String name) {
         this.name = name;
