@@ -75,9 +75,13 @@ public class Player implements IHuman {
             String itemString = scanner.nextLine().toLowerCase().trim();
             for (InventoryItem item: currentRoom.getInventoryItems()) {
                 if (item.equals(itemString)) {
-                    inventory.add(item);
-                    currentRoom.getItem(item);
-                    System.out.println(item.getPickMessage());
+                    if (hasItem(item)) {
+                        System.out.println(Message.HAVE_IT);
+                    } else {
+                        inventory.add(item);
+                        currentRoom.getItem(item);
+                        System.out.println(item.getPickMessage());
+                    }
                     break;
                 }
             }
@@ -86,6 +90,15 @@ public class Player implements IHuman {
             System.out.println(Message.ERROR);
         }
         return null;
+    }
+
+    private boolean hasItem(InventoryItem item) {
+        for (InventoryItem i : inventory) {
+            if (i.equals(item.getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<InventoryItem> getInventory() {
