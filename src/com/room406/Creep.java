@@ -22,6 +22,10 @@ public class Creep implements IHuman {
         return questions;
     }
 
+    public void addQuestion(Question question) {
+        questions.add(question);
+    }
+
     @Override
     public boolean onEvent(Event event) {
         return true;

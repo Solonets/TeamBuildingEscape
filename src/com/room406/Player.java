@@ -41,14 +41,14 @@ public class Player implements IHuman {
             visitedRooms.add(currentRoom);
             System.out.println(currentRoom.getDescription());
         }
-        String command = scanner.next();
+        String command = scanner.next().toLowerCase();
         if (command.equals(Message.SHOW_INVENTORY)) {
             System.out.println(Message.INVENTORY);
             for (InventoryItem item : inventory) {
                 System.out.println(item);
             }
         } else if (command.equals(Message.ACTION_GO)) {
-            String roomString = scanner.nextLine();
+            String roomString = scanner.nextLine().toLowerCase();
             for (Room room: currentRoom.getAvailableRooms()) {
                 if (room.isOpen() && roomString.contains(room.getName())) {
                     return new Move(room);
