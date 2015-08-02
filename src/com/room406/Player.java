@@ -54,7 +54,7 @@ public class Player implements IHuman {
         } else if (command.equals(Message.ACTION_GO.toString().toLowerCase())) {
             String roomString = scanner.nextLine().toLowerCase();
             for (Room room: currentRoom.getAvailableRooms()) {
-                if (room.isOpen() && roomString.contains(room.getName())) {
+                if (room.isOpen() && roomString.contains(room.getName().toLowerCase())) {
                     return new Move(room);
                 }
             }
@@ -64,7 +64,7 @@ public class Player implements IHuman {
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase();
             for (InventoryItem item: currentRoom.getInventoryItems()) {
-                if (item.toString().equals(itemString)) {
+                if (item.toString().toLowerCase().equals(itemString)) {
                     inventory.add(item);
                     currentRoom.getItem(item);
                 }
