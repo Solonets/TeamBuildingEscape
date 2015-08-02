@@ -6,7 +6,7 @@ package com.room406;
 public abstract class Event {
 
     public enum EventType {
-        STARTED("starts"), FINISHED("ended");
+        STARTED("начался"), FINISHED("закончился");
         String name;
 
         EventType(String name) {
@@ -30,6 +30,6 @@ public abstract class Event {
 
     @Override
     public String toString() {
-        return String.format("It's %d, %s %s", tick, name, type);
+        return String.format("Сейчас %d, %s %s", tick, name, type);
     }
 }
