@@ -1,10 +1,11 @@
 package com.room406;
 
-import com.room406.Humans.Creep;
-import com.room406.Humans.Player;
+import com.room406.humans.Creep;
+import com.room406.humans.Player;
 import com.room406.dialog.Answer;
 import com.room406.dialog.Question;
 import com.room406.inventory.InventoryItem;
+import com.room406.rooms.Room;
 
 import java.io.*;
 

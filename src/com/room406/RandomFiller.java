@@ -1,6 +1,7 @@
 package com.room406;
 
 import com.room406.inventory.InventoryItem;
+import com.room406.rooms.Room;
 
 import java.util.Random;
 
@@ -34,7 +35,7 @@ public class RandomFiller {
         };
         int[] influences = {1, 2, 3, 4, 5, 6, 7, 10, 25, 30};
         int i = 0;
-        while(random.nextInt(3) <= 1 && i < 4) {i++;}
+        while(random.nextInt(3) <= 1 && i < items.length - 1) {i++;}
         return new InventoryItem(items[i], accusative[i], pickedMessages[i], influences[i], locations[random.nextInt(locations.length)]);
     }
     static void fillRandomInventory(Room room) {

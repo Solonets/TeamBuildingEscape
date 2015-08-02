@@ -1,4 +1,4 @@
-package com.room406;
+package com.room406.rooms;
 
 import com.room406.inventory.InventoryItem;
 
