@@ -6,7 +6,7 @@ package com.room406.events;
 public abstract class Event {
 
     public enum EventType {
-        STARTED("�������"), FINISHED("����������");
+        STARTED("начался"), FINISHED("закончился");
         String name;
 
         EventType(String name) {
@@ -21,6 +21,7 @@ public abstract class Event {
     private String name;
     private int tick;
     private EventType type;
+    private boolean isPhoneMessage;
 
     public Event(String name, int tick, EventType type) {
         this.name = name;
@@ -30,7 +31,7 @@ public abstract class Event {
 
     @Override
     public String toString() {
-        return String.format("������ %d, %s %s", tick, name, type);
+            return String.format("Сейчас %d, %s %s", tick, name, type);
     }
 
     public EventType getType() {
