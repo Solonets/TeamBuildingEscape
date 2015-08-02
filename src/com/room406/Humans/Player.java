@@ -1,4 +1,12 @@
-package com.room406;
+package com.room406.Humans;
+
+import com.room406.Actions.IAction;
+import com.room406.Actions.Move;
+import com.room406.inventory.InventoryItem;
+import com.room406.Message;
+import com.room406.Room;
+import com.room406.events.EatEvent;
+import com.room406.events.Event;
 
 import java.util.*;
 

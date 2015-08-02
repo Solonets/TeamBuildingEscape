@@ -1,4 +1,6 @@
-package com.room406;
+package com.room406.inventory;
+
+import com.room406.inventory.InventoryItem;
 
 /**
  * Created by vic on 02.08.15.

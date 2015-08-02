@@ -1,9 +1,11 @@
-package com.room406;
+package com.room406.events;
+
+import com.room406.events.Event;
 
 /**
- * Created by Наська on 02.08.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 02.08.2015.
  */
-public class TeambuildingEvent extends Event{
+public class TeambuildingEvent extends Event {
     private String name;
     private int tick;
     private EventType type;

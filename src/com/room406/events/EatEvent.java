@@ -1,14 +1,14 @@
-package com.room406;
+package com.room406.events;
 
 /**
- * Created by Наська on 02.08.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 02.08.2015.
  */
-public class PhoneMessageEvent extends Event {
+public class EatEvent extends Event {
     private String name;
     private int tick;
     private EventType type;
 
-    public PhoneMessageEvent(String name, int tick, EventType type) {
+    public EatEvent(String name, int tick, EventType type) {
         super(name, tick, type);
     }
 

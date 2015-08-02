@@ -1,4 +1,8 @@
-package com.room406;
+package com.room406.dialog;
+
+import com.room406.Humans.Creep;
+import com.room406.Humans.Player;
+import com.room406.inventory.InventoryItem;
 
 import java.util.List;
 import java.util.Random;

@@ -1,5 +1,7 @@
 package com.room406;
 
+import com.room406.inventory.InventoryItem;
+
 import java.util.Random;
 
 /**

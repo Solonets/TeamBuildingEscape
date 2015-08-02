@@ -1,14 +1,14 @@
 package com.room406;
 
-import javax.swing.*;
-import javax.swing.plaf.synth.SynthButtonUI;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import com.room406.Actions.IAction;
+import com.room406.Actions.Move;
+import com.room406.Humans.Creep;
+import com.room406.Humans.Player;
+import com.room406.inventory.InventoryItem;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Created by user on 02.08.2015.
