@@ -26,7 +26,7 @@ public class Game {
 
         Creep lena = new Creep("Лена");
 
-        InventoryItem documents = new InventoryItem("Документы", 10000);
+        InventoryItem documents = new InventoryItem("Документы", "Документы", 10000, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
         Answer a1 = new Answer("Ну... так вышло", -10, "Пойдем-ка, я тебя провожу");
         q1.addAnswer(a1);

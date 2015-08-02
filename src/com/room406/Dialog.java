@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Наська on 02.08.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 02.08.2015.
  */
 public class Dialog {
     private int lastAnswer;
@@ -22,7 +22,7 @@ public class Dialog {
         while (inventoryNeeded > 0) {
             answer = answers.get(lastAnswer++);
             usefulThings = answer.getUsefulThings();
-            inventoryNeeded = answer.getUsefulThings().size();
+                inventoryNeeded = answer.getUsefulThings().size();
             for (int i = 0; i < usefulThings.size(); i++) {
                 if (player.getInventory().contains(usefulThings.get(i))) {
                     inventoryNeeded--;
@@ -30,7 +30,7 @@ public class Dialog {
             }
         }
         System.out.println(answer);
-        playerInfluence = player.getInfluence() + answer.getResult();
+        playerInfluence = player.getInfluence() + answer.getInfluence();
         outcome = random.nextInt(playerInfluence + creep.getInfluence());
         if(outcome < playerInfluence) {
             return true;

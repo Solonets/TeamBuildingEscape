@@ -1,5 +1,6 @@
 package com.room406;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,5 +36,11 @@ public class Answer {
 
     public String getAnswer() {
         return answer;
+    }
+
+    public List getUsefulThings() {
+        List<InventoryItem> res = new ArrayList<>();
+        res.add(dependency);
+        return res;
     }
 }
