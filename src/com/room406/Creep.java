@@ -1,5 +1,6 @@
 package com.room406;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,11 +11,16 @@ public class Creep implements IHuman {
     private String name;
     private Room currentRoom;
     private Random random = new Random();
+    private List<Question> questions;
 
     public Creep(String name) {
         this.name = name;
+        this.questions = new ArrayList<>();
     }
 
+    public List<Question> getQuestions() {
+        return questions;
+    }
 
     @Override
     public boolean onEvent(Event event) {
