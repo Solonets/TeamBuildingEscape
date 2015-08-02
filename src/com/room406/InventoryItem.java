@@ -30,7 +30,8 @@ public class InventoryItem {
     }
     public boolean equals(String name)
     {
-        return this.name == name || this.accusative == name;
+        return this.name.toLowerCase().equals(name.toLowerCase())
+                || this.accusative.toLowerCase().equals(name.toLowerCase());
     }
     public String getLocation()
     {

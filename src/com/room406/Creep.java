@@ -56,6 +56,13 @@ public class Creep implements IHuman {
 
     @Override
     public boolean onEvent(Event event) {
+        if (event instanceof TeambuildingEvent) {
+            if (event.getType().equals(Event.EventType.STARTED)) {
+                isTb = true;
+            } else {
+                isTb = false;
+            }
+        }
         return true;
     }
 
