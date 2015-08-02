@@ -38,10 +38,6 @@ public class Main {
         Player player = new Player("Серёжа");
         player.place(game.getInitialRoom());
 
-        for (Creep creep : game.getCreeps()) {
-            creep.place(game.getInitialRoom().getAvailableRooms().get(0));
-        }
-
         game.setPlayer(player);
 
         return game;
@@ -139,6 +135,9 @@ public class Main {
         holeUniversityFloor4.pushAvailableRoom(holeUniversityFloor2);
         holeUniversityFloor4.pushAvailableRoom(holeUniversityFloor3);
 
+        lena.place(holeUniversityFloor1);
+        timur.place(holeUniversityFloor2);
+        sasha.place(holeUniversityFloor3);
         game.setInitialRoom(room);
 
         try {

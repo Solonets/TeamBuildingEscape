@@ -1,10 +1,10 @@
-package com.room406.Humans;
+package com.room406.humans;
 
-import com.room406.Actions.IAction;
-import com.room406.Actions.Move;
+import com.room406.actions.IAction;
+import com.room406.actions.Move;
 import com.room406.inventory.InventoryItem;
 import com.room406.Message;
-import com.room406.Room;
+import com.room406.rooms.Room;
 import com.room406.events.EatEvent;
 import com.room406.events.Event;
 

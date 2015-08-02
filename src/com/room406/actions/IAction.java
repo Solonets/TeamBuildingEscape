@@ -1,4 +1,4 @@
-package com.room406.Actions;
+package com.room406.actions;
 
 /**
  * Created by vic on 02.08.15.

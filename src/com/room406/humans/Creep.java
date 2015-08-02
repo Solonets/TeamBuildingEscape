@@ -1,11 +1,11 @@
-package com.room406.Humans;
+package com.room406.humans;
 
-import com.room406.Actions.IAction;
-import com.room406.Actions.Move;
+import com.room406.actions.IAction;
+import com.room406.actions.Move;
 import com.room406.dialog.Question;
-import com.room406.Room;
 import com.room406.events.Event;
 import com.room406.events.TeambuildingEvent;
+import com.room406.rooms.Room;
 
 import java.io.Serializable;
 import java.util.ArrayList;
