@@ -32,7 +32,7 @@ public class Creep implements IHuman {
     }
 
     @Override
-    public IAction move() {
+    public IAction getAction() {
         while (true) {
             List<Room> avaliableRooms = currentRoom.getAvailableRooms();
             avaliableRooms.add(currentRoom);

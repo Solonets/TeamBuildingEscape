@@ -36,7 +36,7 @@ public class Player implements IHuman {
     }
 
     @Override
-    public IAction move() {
+    public IAction getAction() {
         if (!visitedRooms.contains(currentRoom)) {
             visitedRooms.add(currentRoom);
             System.out.println(currentRoom.getDescription());

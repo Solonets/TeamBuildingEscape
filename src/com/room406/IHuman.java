@@ -5,6 +5,6 @@ package com.room406;
  */
 public interface IHuman {
     boolean onEvent(Event event);
-    IAction move();
+    IAction getAction();
     void place(Room room);
 }
