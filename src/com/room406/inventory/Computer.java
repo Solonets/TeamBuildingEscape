@@ -7,7 +7,7 @@ import com.room406.inventory.InventoryItem;
  */
 public class Computer extends InventoryItem {
     public Computer() {
-        super("компьютер", "компьютер", 0, "%s");
+        super("компьютер", "компьютер", "Компьютер нужен чтобы накодить квест", 0, "%s");
     }
 
     public void use() {
