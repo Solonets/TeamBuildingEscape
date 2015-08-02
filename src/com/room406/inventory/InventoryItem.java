@@ -1,4 +1,4 @@
-package com.room406;
+package com.room406.inventory;
 
 import java.io.Serializable;
 

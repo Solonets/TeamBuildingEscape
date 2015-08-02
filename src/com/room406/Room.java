@@ -1,5 +1,7 @@
 package com.room406;
 
+import com.room406.inventory.InventoryItem;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,11 @@
 package com.room406;
 
-import javax.tools.FileObject;
+import com.room406.Humans.Creep;
+import com.room406.Humans.Player;
+import com.room406.dialog.Answer;
+import com.room406.dialog.Question;
+import com.room406.inventory.InventoryItem;
+
 import java.io.*;
 
 public class Main {

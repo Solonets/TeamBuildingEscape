@@ -1,0 +1,20 @@
+package com.room406.events;
+
+import com.room406.events.Event;
+
+/**
+ * Created by ������ on 02.08.2015.
+ */
+public class PhoneMessageEvent extends Event {
+    private String name;
+    private int tick;
+    private EventType type;
+
+    public PhoneMessageEvent(String name, int tick, EventType type) {
+        super(name, tick, type);
+    }
+
+    public int getTick() {
+        return tick;
+    }
+}

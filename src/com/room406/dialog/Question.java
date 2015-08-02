@@ -1,4 +1,6 @@
-package com.room406;
+package com.room406.dialog;
+
+import com.room406.dialog.Answer;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,7 @@
-package com.room406;
+package com.room406.Actions;
+
+import com.room406.Actions.IAction;
+import com.room406.Room;
 
 /**
  * Created by ������ on 02.08.2015.
