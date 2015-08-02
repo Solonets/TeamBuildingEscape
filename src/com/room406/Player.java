@@ -67,8 +67,13 @@ public class Player implements IHuman {
         } else if (command.equals(Message.WATCH_AROUND)) {
             System.out.println(currentRoom.getDescription());
         } else if (command.equals(Message.PICK)) {
-            System.out.println(Message.PICKED_INVENTORY);
-            inventory.addAll(currentRoom.getInventoryItems());
+            String itemString = scanner.nextLine().toLowerCase();
+            for (InventoryItem item: currentRoom.getInventoryItems()) {
+                if (item.toString().equals(itemString)) {
+                    inventory.add(item);
+                    currentRoom.getItem(item);
+                }
+            }
         } else {
             System.out.println(Message.ERROR);
         }
