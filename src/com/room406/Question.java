@@ -6,15 +6,15 @@ import java.util.List;
  * Created by ������ on 02.08.2015.
  */
 public class Question {
-    private String Message;
+    private String message;
     private List<Answer> answers;
 
     public Question(String message) {
-        Message = message;
+        this.message = message;
     }
 
     public String getMessage() {
-        return Message;
+        return message;
     }
 
     public List<Answer> getAnswers() {
@@ -23,5 +23,10 @@ public class Question {
 
     public void addAnswer(Answer answer) {
         answers.add(answer);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("- %s\n", message);
     }
 }
