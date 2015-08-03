@@ -106,7 +106,7 @@ public class Main {
         a1 = new Answer("Привет", 10, "");
         q2.addAnswer(a1);
         Question q3 = new Question("Ты пришел на наш тимбилдинг)");
-        a1 = new Answer("...", -10, "" +
+        a1 = new Answer("...", -1000, "" +
                 "                                                                                                                                                      \n" +
                 "                                                                                                `..`                                                  \n" +
                 "                                                                                      ``````..-:::::::--:::::--.`                                     \n" +
