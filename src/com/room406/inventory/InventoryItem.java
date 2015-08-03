@@ -13,14 +13,20 @@ public class InventoryItem implements Serializable, IUsable {
     private int influence;
     private String pickMessage;
     private String location;
+    private int codingSkills;
     private boolean isPicked = false;
 
-    public InventoryItem(String name, String accusative, String pickMessage, int influence, String location) {
+    public InventoryItem(String name, String accusative, String pickMessage, int influence, int codingSkills, String location) {
         this.name = name;
         this.pickMessage = pickMessage;
         this.accusative = accusative;
         this.influence = influence;
         this.location = location;
+        this.codingSkills = codingSkills;
+    }
+    public int getCodingSkills()
+    {
+        return codingSkills;
     }
     public void pickUp()
     {
@@ -55,11 +61,14 @@ public class InventoryItem implements Serializable, IUsable {
     }
     public String getPickMessage()
     {
-        if (this.getInfluence() == 0)
-        {
-            return this.pickMessage;
+        String result = this.pickMessage;
+        if (this.getInfluence() != 0) {
+            result += " (+" + this.getInfluence() + " к влиянию)";
         }
-        return this.pickMessage + " (+" + this.getInfluence() + " к влиянию)";
+        if (this.getCodingSkills() != 0) {
+            result += " (+" + this.getCodingSkills() + " к кодингу)";
+        }
+        return result;
     }
     public String getLocation()
     {

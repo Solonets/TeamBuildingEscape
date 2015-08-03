@@ -12,7 +12,7 @@ public class Phone extends InventoryItem implements IUsable {
     private boolean isCharged = false;
     private List<String> messages = new ArrayList<>();
     public Phone() {
-        super("телефон", "телефон", "Твой телефон", 0, "%s лежит на полке");
+        super("телефон", "телефон", "Твой телефон", 0, 0, "%s лежит на полке");
     }
 
     @Override
@@ -48,5 +48,9 @@ public class Phone extends InventoryItem implements IUsable {
         String s = "[Telegram] TA: Задание в приклепленном файле";
         System.out.println(s);
         pushMessage(s);
+    }
+    public boolean isCharged()
+    {
+        return isCharged;
     }
 }

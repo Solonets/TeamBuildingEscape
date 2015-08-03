@@ -77,7 +77,7 @@ public class Main {
 
         Creep lena = new Creep("Лена", Creep.CreepSex.FEMALE);
         lena.setInfluence(50);
-        InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 10000, "%s");
+        InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 0, 0, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
         Answer a1 = new Answer("Ну... так вышло", -5, "");
         q1.addAnswer(a1);

@@ -25,11 +25,20 @@ public class Player implements IHuman {
     private List<InventoryItem> inventory;
     private boolean isHungry;
     private int influence;
+    private int codingSkills = 0;
 
     public int getInfluence() {
         int result = influence;
         for (InventoryItem item : inventory) {
             result += item.getInfluence();
+        }
+        return result;
+    }
+
+    public int getCodingSkills() {
+        int result = codingSkills;
+        for (InventoryItem item : inventory) {
+            result += item.getCodingSkills();
         }
         return result;
     }

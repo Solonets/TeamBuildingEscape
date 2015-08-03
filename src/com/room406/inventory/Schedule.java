@@ -7,7 +7,7 @@ import com.room406.actions.IAction;
  */
 public class Schedule extends InventoryItem implements IUsable{
     public Schedule() {
-        super("расписание", "расписание", "Это твое расписание", 0, "%s висит на стене");
+        super("расписание", "расписание", "Это твое расписание", 0, 0, "%s висит на стене");
     }
     @Override
     public IAction use() {
