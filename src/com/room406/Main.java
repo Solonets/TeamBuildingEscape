@@ -71,7 +71,7 @@ public class Main {
         holeUniversityFloor4.pushAvailableRoom(It);
         room.pushAvailableRoom(holeCampus);
 
-        Creep lena = new Creep("Лена");
+        Creep lena = new Creep("Лена", Creep.CreepSex.FEMALE);
         lena.setInfluence(50);
         InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 10000, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
@@ -90,7 +90,7 @@ public class Main {
         q2.addAnswer(a1);
         lena.addNotTbQuestion(q2);
 
-        Creep sasha = new Creep("Саша");
+        Creep sasha = new Creep("Саша", Creep.CreepSex.FEMALE);
         sasha.setInfluence(100);
 
         q1 = new Question("Идешь на тимбилдинг сегодня?");
@@ -174,7 +174,7 @@ public class Main {
         sasha.addNotTbQuestion(q1);
         sasha.addNotTbQuestion(q2);
 
-        Creep timur = new Creep("Тимур");
+        Creep timur = new Creep("Тимур", Creep.CreepSex.MALE);
         timur.setInfluence(50);
         q1 = new Question("Ты почену не на тимбилдинге?");
         a1 = new Answer("У нас в общаге крыша протекает", 10, "Мы работаем над этим");

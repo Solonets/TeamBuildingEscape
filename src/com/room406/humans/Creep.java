@@ -16,12 +16,16 @@ import java.util.Random;
  * Created by vic on 02.08.15.
  */
 public class Creep implements IHuman, Serializable {
+    public enum CreepSex {
+        FEMALE, MALE;
+    }
     private String name;
     private Room currentRoom;
     private transient Random random = new Random();
     private List<Question> tbQuestions;
     private List<Question> notTbQuestions;
     private int influence;
+    private CreepSex sex;
     private boolean isTb = false;
 
     public Room getCurrentRoom() {
@@ -36,10 +40,21 @@ public class Creep implements IHuman, Serializable {
         this.influence = influence;
     }
 
-    public Creep(String name) {
+    public String getName() {
+        return name;
+    }
+
+
+    public Creep(String name, CreepSex sex) {
         this.name = name;
         this.tbQuestions = new ArrayList<>();
         this.notTbQuestions = new ArrayList<>();
+        this.sex = sex;
+    }
+
+
+    public CreepSex getSex() {
+        return sex;
     }
 
     public List<Question> getTbQuestions() {
