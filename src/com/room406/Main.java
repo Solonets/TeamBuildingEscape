@@ -75,14 +75,14 @@ public class Main {
         lena.setInfluence(50);
         InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 10000, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
-        Answer a1 = new Answer("Ну... так вышло", -5, "Пойдем-ка, я тебя провожу");
+        Answer a1 = new Answer("Ну... так вышло", -5, "");
         q1.addAnswer(a1);
-        Answer a2 = new Answer("Не заметил, что он начался...", 0, "Пойдем-ка, я тебя проведу");
+        Answer a2 = new Answer("Не заметил, что он начался...", 0, "");
         q1.addAnswer(a2);
         Answer a3 = new Answer("Несу сдавать документы", 5, "Давай я сама отнесу");
         a3.setDependency(documents);
         q1.addAnswer(a3);
-        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -10, "... Брысь на тимбилдинг");
+        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -10, "");
         lena.addTbQuestion(q1);
 
         Question q2 = new Question("Привет");
@@ -179,7 +179,7 @@ public class Main {
         q1 = new Question("Ты почену не на тимбилдинге?");
         a1 = new Answer("У нас в общаге крыша протекает", 10, "Мы работаем над этим");
         q1.addAnswer(a1);
-        a2 = new Answer("Я хотел чего-нибудь поделать...", -5, "Иди на тимбилдинг");
+        a2 = new Answer("Я хотел чего-нибудь поделать...", -5, "");
         q1.addAnswer(a2);
         a3 = new Answer("Я документы несу", 10, "Хорошо");
         q1.addAnswer(a3);
