@@ -72,20 +72,24 @@ public class Dialog {
         Scanner scanner = new Scanner(System.in);
         int answerNumber = scanner.nextInt() - 1;
         int battleInfluence = 0;
-        if (answerNumber >= answers.size() || answerNumber < 0) {
-            System.out.println("Ты промолчал. " + creep + " посмотрел(а) на тебя с высока.");
-        } else {
-            System.out.println(player + ": " + answers.get(answerNumber));
-            battleInfluence += answers.get(answerNumber).getInfluence();
-            if (!answers.get(answerNumber).getAnswer().isEmpty()) {
-                System.out.println(creep + ": " + answers.get(answerNumber).getAnswer());
-            }
-        }
         int creepInfluence = creep.getInfluence();
         int playerInfluence = player.getInfluence() + battleInfluence;
         boolean result = (playerInfluence + creepInfluence > 0
                 && random.nextInt(playerInfluence + creepInfluence) < playerInfluence);
-        player.addInfluence(battleInfluence);
+        if (battleInfluence > 0) {
+            player.addInfluence(battleInfluence);
+        }
+        if (result) {
+            if (answerNumber >= answers.size() || answerNumber < 0) {
+                System.out.println("Ты промолчал. " + creep + " посмотрел(а) на тебя с высока.");
+            } else {
+                System.out.println(player + ": " + answers.get(answerNumber));
+                battleInfluence += answers.get(answerNumber).getInfluence();
+                if (!answers.get(answerNumber).getAnswer().isEmpty()) {
+                    System.out.println(creep + ": " + answers.get(answerNumber).getAnswer());
+                }
+            }
+        }
         return result;
     }
 }
