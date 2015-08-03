@@ -67,9 +67,19 @@ public class Game implements Serializable {
                     Dialog dialog = new Dialog(creep, player);
                     boolean dialogResult = dialog.dialog();
                     if (dialogResult) {
-                        System.out.println(player + " победил");
+                        if(creep.getSex() == Creep.CreepSex.FEMALE) {
+                            System.out.println(creep.getName() + " сравняла тебя взглядом с землей и отправила на тимбилдинг");
+                        }
+                        else {
+                            System.out.println(creep.getName() + " сравнял тебя взглядом с землей и отправил на тимбилдинг");
+                        }
                     } else {
-                        System.out.println(player + " проиграл");
+                        if(creep.getSex() == Creep.CreepSex.FEMALE) {
+                            System.out.println(creep.getName() + " посчитала твои доводы достаточно весомыми, да ты влятельный человек");
+                        }
+                        else {
+                            System.out.println(creep.getName() + " посчитал твои доводы достаточно весомыми, да ты влятельный человек");
+                        }
                     }
                     break;
                 }
