@@ -33,7 +33,7 @@ public class RandomFiller {
                 "Ты подобрал и съел чеснок, вряд ли кто-то захочет спорить с тобой",
                 "Обмотав руку бинтом ты вызовешь сострадание у организации, а разве сострадание и власть не одно и то же?"
         };
-        int[] influences = {1, 2, 3, 4, 5, 6, 7, 10, 25, 30};
+        int[] influences = {1, 2, 3, 4, 5, 10, 10, 15, 25, 30};
         int i = 0;
         while(random.nextInt(3) <= 1 && i < items.length - 1) {i++;}
         return new InventoryItem(items[i], accusative[i], pickedMessages[i], influences[i], locations[random.nextInt(locations.length)]);

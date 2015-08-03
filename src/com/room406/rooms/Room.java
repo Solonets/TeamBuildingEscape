@@ -1,5 +1,6 @@
 package com.room406.rooms;
 
+import com.room406.humans.Creep;
 import com.room406.inventory.InventoryItem;
 
 import java.io.Serializable;
@@ -41,7 +42,17 @@ public class Room implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        String desc = "";
+        for (InventoryItem r: getInventoryItems())
+        {
+            desc += r.getLocation() + "\n";
+        }
+        desc += "Доступные локации: ";
+        for (Room r: getAvailableRooms())
+        {
+            desc += r.getName() + ", ";
+        }
+        return (isVisited() ? history : description) + "\n" + desc;
     }
 
     public String getName() {

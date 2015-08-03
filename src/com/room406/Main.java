@@ -4,7 +4,10 @@ import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.dialog.Answer;
 import com.room406.dialog.Question;
+import com.room406.inventory.Computer;
 import com.room406.inventory.InventoryItem;
+import com.room406.inventory.Phone;
+import com.room406.inventory.Schedule;
 import com.room406.rooms.Room;
 
 import java.io.*;
@@ -35,7 +38,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        Player player = new Player("Серёжа");
+        Player player = new Player("Булат");
         player.place(game.getInitialRoom());
 
         game.setPlayer(player);
@@ -47,12 +50,20 @@ public class Main {
         Game game = new Game();
         Room room = new Room("Номер 406", "Ты находишься в комнате 406. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
                 " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Это твоя комната", true, true);
+        room.pushItem(new Schedule());
+        room.pushItem(new Phone());
         Room holeCampus = new Room("Кампус", "По кампусу не ходят организаторы, здесь ты в безопасности", "Длинный коридор с дверьми в комнаты", true, false);
         Room holeUniversityFloor1 = new Room("1 этаж университета", "На первом этаже находится столовая", "Просторное помещение с двумя основными кабинетами для лекций", true, false);
         Room holeUniversityFloor2 = new Room("2 этаж университета", "На втором этаже находится много кабинетов для занятий", "На втором этаже можно подшлянуть в лекторные первого этажа", true, false);
         Room holeUniversityFloor3 = new Room("3 этаж университета", "На третьем этаже находятся кабинеты для занятий программированием", "Много прозрачных смотровых и читальный зал", true, false);
         Room university317 = new Room("Кабинет 317", "TA нет в университете. Зато он есть в Telegram.", "Обычный кабинет для занятий по программированию", true, false);
         Room holeUniversityFloor4 = new Room("4 этаж университета", "На четвертом этаже находятся кабинеты английского", "много кабинетов и небольшая лужица рядом с лестницей", true, false);
+        Room It = new Room("IT отдел", "IT отдел, в нем никого нет", "It Отдел заставлен компьютерами", true, false);
+        It.pushItem(new Computer("%s лежит на столе"));
+        It.pushItem(new Computer("под столом лежит %s"));
+        It.pushItem(new Computer("на подоконике лежит еще один %s"));
+        It.pushAvailableRoom(holeUniversityFloor4);
+        holeUniversityFloor4.pushAvailableRoom(It);
         room.pushAvailableRoom(holeCampus);
 
         Creep lena = new Creep("Лена");
@@ -128,6 +139,29 @@ public class Main {
         holeUniversityFloor3.pushAvailableRoom(holeUniversityFloor2);
         holeUniversityFloor3.pushAvailableRoom(holeUniversityFloor4);
         holeUniversityFloor3.pushAvailableRoom(university317);
+        for (int i = 300; i <= 310; i++)
+        {
+            if (i != 307)
+            {
+                Room r = new Room("Кабинет " + i, "Кабинет программирования", "Кабинет программирования", true, true);
+                r.pushAvailableRoom(holeUniversityFloor3);
+                holeUniversityFloor3.pushAvailableRoom(r);
+            }
+        }
+        for (int i = 400; i <= 410; i++)
+        {
+                Room r = new Room("Кабинет " + i, "Кабинет английского языка", "Кабинет английского языка", true, true);
+                r.pushAvailableRoom(holeUniversityFloor4);
+                holeUniversityFloor4.pushAvailableRoom(r);
+        }
+
+        for (int i = 200; i <= 210; i++)
+        {
+            Room r = new Room("Кабинет " + i, "Кабинет для занятий", "Кабинет для занятий", true, true);
+            r.pushAvailableRoom(holeUniversityFloor2);
+            holeUniversityFloor2.pushAvailableRoom(r);
+        }
+
 
         university317.pushAvailableRoom(holeUniversityFloor3);
 

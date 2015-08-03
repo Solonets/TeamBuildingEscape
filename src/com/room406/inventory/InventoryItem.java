@@ -19,6 +19,10 @@ public class InventoryItem implements Serializable {
         this.influence = influence;
         this.location = location;
     }
+    public void use()
+    {
+        System.out.println("Зачем тебе с этим что-то делать? просто носи и гордись");
+    }
 
     public String getName() {
         return name;
@@ -39,6 +43,10 @@ public class InventoryItem implements Serializable {
     }
     public String getPickMessage()
     {
+        if (this.getInfluence() == 0)
+        {
+            return this.pickMessage;
+        }
         return this.pickMessage + " (+" + this.getInfluence() + " к влиянию)";
     }
     public String getLocation()

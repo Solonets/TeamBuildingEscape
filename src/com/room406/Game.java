@@ -78,30 +78,15 @@ public class Game implements Serializable {
             {
                 RandomFiller.fillRandomInventory(player.getPlace());
             }
-            System.out.println(player.getPlace().getHistory());
             player.getPlace().setVisited();
-        }
-        else
-        {
             System.out.println(player.getPlace().getDescription());
-        }
-
-        for (InventoryItem r: player.getPlace().getInventoryItems())
-        {
-            System.out.println(r.getLocation());
-        }
-        System.out.print("Доступные локации: ");
-        for (Room r: player.getPlace().getAvailableRooms())
-        {
-            System.out.print(r.getName() + ", ");
-        }
-        for (Creep creep : creeps) {
-            if (creep.getCurrentRoom() == player.getPlace()) {
-                System.out.print("\nСдесь находится " + creep);
+            for (Creep creep : creeps) {
+                if (creep.getCurrentRoom() == player.getPlace()) {
+                    System.out.print("\nСдесь находится " + creep);
+                }
             }
         }
-
-        System.out.println();
+        //System.out.println();
         for (Creep creep: creeps) {
             IAction action = creep.getAction();
             if (action instanceof Move) {
