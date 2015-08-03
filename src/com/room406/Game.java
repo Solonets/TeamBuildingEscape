@@ -23,8 +23,6 @@ public class Game implements Serializable {
     private List<Creep> creeps;
     private List<Event> events = new ArrayList<>();
 
-    private List<Event> events;
-
     public void setEvents(List<Event> events) {
         this.events = events;
     }
@@ -40,10 +38,6 @@ public class Game implements Serializable {
     private Room initialRoom;
     public Game() {
         creeps = new ArrayList<>();
-    }
-    public List<Event> getEvents()
-    {
-        return events;
     }
     public void addCreep(Creep creep) {
         creeps.add(creep);
