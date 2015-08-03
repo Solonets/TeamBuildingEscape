@@ -170,4 +170,8 @@ public class Player implements IHuman {
     public String toString() {
         return name;
     }
+    public void feed()
+    {
+        isHungry = true;
+    }
 }

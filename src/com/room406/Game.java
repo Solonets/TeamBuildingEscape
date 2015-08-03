@@ -1,5 +1,6 @@
 package com.room406;
 
+import com.room406.actions.Eat;
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.dialog.Dialog;
@@ -94,6 +95,12 @@ public class Game implements Serializable {
                     break;
                 }
             }
+        }
+        else if (action instanceof Eat)
+        {
+            player.feed();
+            System.out.println("ням-ням-ням");
+            tick += 2;
         }
     }
 
