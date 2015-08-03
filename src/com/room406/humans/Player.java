@@ -22,7 +22,15 @@ public class Player implements IHuman {
     private int influence;
 
     public int getInfluence() {
-        return influence;
+        int result = influence;
+        for (InventoryItem item : inventory) {
+            result += item.getInfluence();
+        }
+        return result;
+    }
+
+    public void addInfluence(int add) {
+        influence += add;
     }
 
     public void setInfluence(int influence) {
@@ -68,6 +76,7 @@ public class Player implements IHuman {
                     return new Move(room);
                 }
             }
+            System.out.println(Message.CANT_GO_THERE);
         } else if (command.equals(Message.USE.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase().trim();
             for (InventoryItem item: inventory) {
@@ -80,6 +89,7 @@ public class Player implements IHuman {
             System.out.println(currentRoom.getDescription());
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase().trim();
+            boolean find = false;
             for (InventoryItem item: currentRoom.getInventoryItems()) {
                 if (item.equals(itemString)) {
                     if (hasItem(item)) {
@@ -89,8 +99,12 @@ public class Player implements IHuman {
                         currentRoom.getItem(item);
                         System.out.println(item.getPickMessage());
                     }
+                    find = true;
                     break;
                 }
+            }
+            if (!find) {
+                System.out.println(Message.HAVE_NOT_THIS);
             }
         } else {
             scanner.nextLine();
@@ -99,7 +113,7 @@ public class Player implements IHuman {
         return null;
     }
 
-    private boolean hasItem(InventoryItem item) {
+    public boolean hasItem(InventoryItem item) {
         for (InventoryItem i : inventory) {
             if (i.equals(item.getName())) {
                 return true;
@@ -119,5 +133,10 @@ public class Player implements IHuman {
 
     public Room getPlace() {
         return currentRoom;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

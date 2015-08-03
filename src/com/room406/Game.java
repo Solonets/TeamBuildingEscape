@@ -2,6 +2,7 @@ package com.room406;
 
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
+import com.room406.dialog.Dialog;
 import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.inventory.InventoryItem;
@@ -56,6 +57,19 @@ public class Game implements Serializable {
         {
             Move move = (Move)action;
             player.place(move.getRoom());
+
+            for (Creep creep : creeps) {
+                if (creep.getCurrentRoom() == player.getPlace()) {
+                    Dialog dialog = new Dialog(creep, player);
+                    boolean dialogResult = dialog.dialog();
+                    if (dialogResult) {
+                        System.out.println(player + " победил");
+                    } else {
+                        System.out.println(player + " проиграл");
+                    }
+                    break;
+                }
+            }
         }
     }
 
@@ -79,20 +93,21 @@ public class Game implements Serializable {
                 RandomFiller.fillRandomInventory(player.getPlace());
             }
             player.getPlace().setVisited();
-            System.out.println(player.getPlace().getDescription());
-            for (Creep creep : creeps) {
+            //System.out.println(player.getPlace().getHistory());
+            /*for (Creep creep : creeps) {
                 if (creep.getCurrentRoom() == player.getPlace()) {
                     System.out.print("\nЗдесь находится " + creep);
                 }
-            }
+            }*/
         }
+        System.out.println(player.getPlace().getDescription());
         //System.out.println();
-        for (Creep creep: creeps) {
+        /*for (Creep creep: creeps) {
             IAction action = creep.getAction();
             if (action instanceof Move) {
                 creep.place(((Move) action).getRoom());
             }
-        }
+        }*/
         return true;
     }
     public void execute()
