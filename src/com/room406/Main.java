@@ -1,5 +1,9 @@
 package com.room406;
 
+import com.room406.events.EatEvent;
+import com.room406.events.Event;
+import com.room406.events.PhoneMessageEvent;
+import com.room406.events.TeambuildingEvent;
 import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.dialog.Answer;
@@ -11,6 +15,8 @@ import com.room406.inventory.Schedule;
 import com.room406.rooms.Room;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -114,6 +120,37 @@ public class Main {
         game.addCreep(lena);
         game.addCreep(sasha);
         game.addCreep(timur);
+
+        List<Event> eventList = new ArrayList<>();
+        Event eventBreakfastStarts = new EatEvent("Зaвтрак", 0, Event.EventType.STARTED);
+        eventList.add(eventBreakfastStarts);
+        Event eventTeambuildingStarts1 = new TeambuildingEvent("Тимбилдинг", 12, Event.EventType.STARTED);
+        eventList.add(eventTeambuildingStarts1);
+        Event eventBreakfastFinished = new EatEvent("Зaвтрак", 24, Event.EventType.FINISHED);
+        eventList.add(eventBreakfastFinished);
+        Event eventMessageRecieved1 = new PhoneMessageEvent("Телефон", 36, Event.EventType.STARTED, "Лена: собираемся в 108, будет организационное собрание");
+        eventList.add(eventMessageRecieved1);
+        Event eventTeambuildingStartsFinished1 = new TeambuildingEvent("Тимбилдинг", 60, Event.EventType.FINISHED);
+        eventList.add(eventTeambuildingStartsFinished1);
+        Event eventLunchStarts = new EatEvent("Обед", 72, Event.EventType.STARTED);
+        eventList.add(eventLunchStarts);
+        Event eventMessageRecieved2 = new PhoneMessageEvent("Телефон", 84, Event.EventType.STARTED, "Лена: собираемся в читальном зале, будет организационное собрание");
+        eventList.add(eventMessageRecieved2);
+        Event eventTeambuildingStarts2 = new TeambuildingEvent("Тимбилдинг", 84, Event.EventType.STARTED);
+        eventList.add(eventTeambuildingStarts2);
+        Event eventLunchFinished = new EatEvent("Обед", 96, Event.EventType.FINISHED);
+        eventList.add(eventLunchFinished);
+        Event eventDinnerStarts = new EatEvent("Ужин", 132, Event.EventType.STARTED);
+        eventList.add(eventDinnerStarts);
+        Event eventTeambuildingStartsFinished2 = new TeambuildingEvent("Тимбилдинг", 144, Event.EventType.FINISHED);
+        eventList.add(eventTeambuildingStartsFinished2);
+        Event eventMessageRecieved3 = new PhoneMessageEvent("Телефон", 144, Event.EventType.STARTED, "Лена: собираемся в 211, будет организационное собрание");
+        eventList.add(eventMessageRecieved3);
+        Event eventDinnerFinished = new EatEvent("Ужин", 156, Event.EventType.FINISHED);
+        eventList.add(eventDinnerFinished);
+        Event eventMessageRecieved4 = new PhoneMessageEvent("Телефон", 170, Event.EventType.STARTED, "Лена: собираемся в 310, будет организационное собрание");
+        eventList.add(eventMessageRecieved4);
+
 
         holeCampus.pushAvailableRoom(room);
         for (int i = 400; i <= 410; i++)
