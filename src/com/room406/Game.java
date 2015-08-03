@@ -97,7 +97,7 @@ public class Game implements Serializable {
         }
         for (Creep creep : creeps) {
             if (creep.getCurrentRoom() == player.getPlace()) {
-                System.out.println("Сдесь находится " + creep);
+                System.out.print("\nСдесь находится " + creep);
             }
         }
 
