@@ -22,7 +22,7 @@ public class Creep implements IHuman, Serializable {
     private List<Question> tbQuestions;
     private List<Question> notTbQuestions;
     private int influence;
-    private boolean isTb = true;
+    private boolean isTb = false;
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -83,7 +83,10 @@ public class Creep implements IHuman, Serializable {
             random = new Random();
         }
         while (true) {
-            List<Room> avaliableRooms = currentRoom.getAvailableRooms();
+            List<Room> avaliableRooms = new ArrayList();
+            avaliableRooms.add(currentRoom);
+            avaliableRooms.addAll(currentRoom.getAvailableRooms());
+            avaliableRooms.add(currentRoom);
             int nextRoomNumber = random.nextInt(avaliableRooms.size());
             Room nextRoom = avaliableRooms.get(nextRoomNumber);
             if (nextRoom.isOpen()) {

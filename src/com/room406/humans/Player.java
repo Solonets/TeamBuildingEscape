@@ -2,8 +2,11 @@ package com.room406.humans;
 
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
+import com.room406.events.PhoneMessageEvent;
+import com.room406.events.TeambuildingEvent;
 import com.room406.inventory.InventoryItem;
 import com.room406.Message;
+import com.room406.inventory.Phone;
 import com.room406.rooms.Room;
 import com.room406.events.EatEvent;
 import com.room406.events.Event;
@@ -53,8 +56,29 @@ public class Player implements IHuman {
                     return false;
                 }
             }
+        } else if (event instanceof PhoneMessageEvent) {
+            Phone phone = getPhone();
+            if (phone != null) {
+                phone.pushMessage(((PhoneMessageEvent) event).getMessage());
+                System.out.println(event);
+            }
+        } else if (event instanceof TeambuildingEvent) {
+            if (event.getType().equals(Event.EventType.STARTED)) {
+
+            } else {
+
+            }
         }
         return true;
+    }
+
+    private Phone getPhone() {
+        for (InventoryItem item : inventory) {
+            if (item instanceof Phone) {
+                return (Phone) item;
+            }
+        }
+        return null;
     }
 
     @Override
