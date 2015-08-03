@@ -3,6 +3,7 @@ package com.room406;
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.dialog.Dialog;
+import com.room406.events.Event;
 import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.inventory.InventoryItem;
@@ -20,6 +21,7 @@ public class Game implements Serializable {
     private final int MINUTES_PER_TICK = 5;
     private int tick = 0;
     private List<Creep> creeps;
+    private List<Event> events = new ArrayList<>();
 
     public Room getInitialRoom() {
         return initialRoom;
@@ -33,7 +35,10 @@ public class Game implements Serializable {
     public Game() {
         creeps = new ArrayList<>();
     }
-
+    public List<Event> getEvents()
+    {
+        return events;
+    }
     public void addCreep(Creep creep) {
         creeps.add(creep);
     }
