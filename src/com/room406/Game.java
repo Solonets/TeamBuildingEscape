@@ -98,7 +98,6 @@ public class Game implements Serializable {
         }
         else if (action instanceof Eat)
         {
-            player.feed();
             System.out.println("ням-ням-ням");
             tick += 2;
         }

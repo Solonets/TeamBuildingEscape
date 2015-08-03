@@ -117,6 +117,7 @@ public class Player implements IHuman {
                 isHungry = false;
                 return new Eat();
             }
+            System.out.println("Тут нету еды.");
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase().trim();
             boolean find = false;
@@ -170,8 +171,5 @@ public class Player implements IHuman {
     public String toString() {
         return name;
     }
-    public void feed()
-    {
-        isHungry = true;
-    }
+
 }
