@@ -8,10 +8,7 @@ import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.dialog.Answer;
 import com.room406.dialog.Question;
-import com.room406.inventory.Computer;
-import com.room406.inventory.InventoryItem;
-import com.room406.inventory.Phone;
-import com.room406.inventory.Schedule;
+import com.room406.inventory.*;
 import com.room406.rooms.Room;
 
 import java.io.*;
@@ -57,7 +54,8 @@ public class Main {
         Room room = new Room("Номер 406", "Ты находишься в комнате 406. Наступили выходные и у тебя есть всего два дня, чтобы накодить квест." +
                 " Тебе еще не выдали задание, но ты можешь получить его у своего TA.", "Это твоя комната", true, true);
         room.pushItem(new Schedule());
-        room.pushItem(new Phone());
+        Phone phone = new Phone();
+        room.pushItem(phone);
         Room holeCampus = new Room("Кампус", "По кампусу не ходят организаторы, здесь ты в безопасности", "Длинный коридор с дверьми в комнаты", true, false);
         Room holeUniversityFloor1 = new Room("1 этаж университета", "На первом этаже находится столовая", "Просторное помещение с двумя основными кабинетами для лекций", true, false);
         Room holeUniversityFloor2 = new Room("2 этаж университета", "На втором этаже находится много кабинетов для занятий", "На втором этаже можно подшлянуть в лекторные первого этажа", true, false);
@@ -193,7 +191,7 @@ public class Main {
         game.addCreep(sasha);
         game.addCreep(timur);
 
-        List<Event> eventList = new ArrayList<>();
+        List<Event> eventList = game.getEvents();
         Event eventBreakfastStarts = new EatEvent("Зaвтрак", 0, Event.EventType.STARTED);
         eventList.add(eventBreakfastStarts);
         Event eventTeambuildingStarts1 = new TeambuildingEvent("Тимбилдинг", 12, Event.EventType.STARTED);
@@ -264,8 +262,11 @@ public class Main {
                 Room r = new Room("Кабинет " + i, "Кабинет английского языка", "Кабинет английского языка", true, true);
                 r.pushAvailableRoom(holeUniversityFloor4);
                 holeUniversityFloor4.pushAvailableRoom(r);
+                if (i == 410)
+                {
+                    r.pushItem(new Charger(phone));
+                }
         }
-
         for (int i = 200; i <= 210; i++)
         {
             Room r = new Room("Кабинет " + i, "Кабинет для занятий", "Кабинет для занятий", true, true);

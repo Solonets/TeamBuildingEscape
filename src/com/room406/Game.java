@@ -21,6 +21,7 @@ public class Game implements Serializable {
     private final int MINUTES_PER_TICK = 5;
     private int tick = 0;
     private List<Creep> creeps;
+    private List<Event> events = new ArrayList<>();
 
     private List<Event> events;
 
@@ -40,7 +41,10 @@ public class Game implements Serializable {
     public Game() {
         creeps = new ArrayList<>();
     }
-
+    public List<Event> getEvents()
+    {
+        return events;
+    }
     public void addCreep(Creep creep) {
         creeps.add(creep);
     }

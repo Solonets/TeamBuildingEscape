@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by ������ on 02.08.2015.
  */
-public abstract class Event implements Serializable {
+public abstract class Event implements Serializable{
 
     public enum EventType {
         STARTED("начался"), FINISHED("закончился");

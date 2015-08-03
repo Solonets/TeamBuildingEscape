@@ -13,7 +13,13 @@ public class Charger extends InventoryItem implements IUsable{
     @Override
     public void use()
     {
-        phone.charge();
-        System.out.println("Теперь телефон заряжен");
+        if (phone.isPicked()) {
+            phone.charge();
+            System.out.println("Теперь телефон заряжен");
+        }
+        else
+        {
+            System.out.println("Как ты хочешь использовать зарядку без телефона?");
+        }
     }
 }
