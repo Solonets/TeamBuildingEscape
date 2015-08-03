@@ -9,6 +9,7 @@ import com.room406.humans.Player;
 import com.room406.dialog.Answer;
 import com.room406.dialog.Question;
 import com.room406.inventory.*;
+import com.room406.rooms.DinnerRoom;
 import com.room406.rooms.Room;
 
 import java.io.*;
@@ -58,6 +59,8 @@ public class Main {
         room.pushItem(phone);
         Room holeCampus = new Room("Кампус", "По кампусу не ходят организаторы, здесь ты в безопасности", "Длинный коридор с дверьми в комнаты", true, false);
         Room holeUniversityFloor1 = new Room("1 этаж университета", "На первом этаже находится столовая", "Просторное помещение с двумя основными кабинетами для лекций", true, false);
+        DinnerRoom dr = new DinnerRoom();
+        dr.pushAvailableRoom(holeUniversityFloor1);
         Room holeUniversityFloor2 = new Room("2 этаж университета", "На втором этаже находится много кабинетов для занятий", "На втором этаже можно подшлянуть в лекторные первого этажа", true, false);
         Room holeUniversityFloor3 = new Room("3 этаж университета", "На третьем этаже находятся кабинеты для занятий программированием", "Много прозрачных смотровых и читальный зал", true, false);
         Room university317 = new Room("Кабинет 317", "TA нет в университете. Зато он есть в Telegram.", "Обычный кабинет для занятий по программированию", true, false);
