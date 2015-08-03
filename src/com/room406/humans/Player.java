@@ -113,9 +113,12 @@ public class Player implements IHuman {
         } else if (command.equals(Message.WATCH_AROUND.toString().toLowerCase())) {
             System.out.println(currentRoom.getDescription());
         } else if (command.equals(Message.EAT.toString().toLowerCase())) {
-            if (currentRoom instanceof DinnerRoom && isHungry) {
-                isHungry = false;
-                return new Eat();
+            if (currentRoom instanceof DinnerRoom) {
+                if (isHungry) {
+                    isHungry = false;
+                    return new Eat();
+                }
+                System.out.println("Я и так полноват. Пожалуй не буду кушать больше.");
             }
             System.out.println("Тут нету еды.");
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
