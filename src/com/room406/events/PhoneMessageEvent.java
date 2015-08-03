@@ -22,7 +22,7 @@ public class PhoneMessageEvent extends Event {
 
     @Override
     public String toString() {
-        return String.format("Вы получили сообщение на телефон: %s", message);
+        return String.format("[Telegram]: %s", message);
     }
 }
 
