@@ -105,8 +105,7 @@ public class Player implements IHuman {
             String itemString = scanner.nextLine().toLowerCase().trim();
             for (InventoryItem item: inventory) {
                 if (item.equals(itemString)) {
-                    item.use();
-                    break;
+                    return item.use();
                 }
             }
         } else if (command.equals(Message.WATCH_AROUND.toString().toLowerCase())) {

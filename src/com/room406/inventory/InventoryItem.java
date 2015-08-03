@@ -1,11 +1,13 @@
 package com.room406.inventory;
 
+import com.room406.actions.IAction;
+
 import java.io.Serializable;
 
 /**
  * Created by user on 02.08.2015.
  */
-public class InventoryItem implements Serializable {
+public class InventoryItem implements Serializable, IUsable {
     private String name;
     private String accusative;
     private int influence;
@@ -28,9 +30,10 @@ public class InventoryItem implements Serializable {
     {
         return isPicked;
     }
-    public void use()
+    public IAction use()
     {
         System.out.println("Зачем тебе с этим что-то делать? просто носи и гордись");
+        return null;
     }
 
     public String getName() {

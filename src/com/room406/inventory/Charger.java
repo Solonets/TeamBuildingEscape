@@ -1,5 +1,7 @@
 package com.room406.inventory;
 
+import com.room406.actions.IAction;
+
 /**
  * Created by user on 03.08.2015.
  */
@@ -11,7 +13,7 @@ public class Charger extends InventoryItem implements IUsable{
         this.phone = phone;
     }
     @Override
-    public void use()
+    public IAction use()
     {
         if (phone.isPicked()) {
             phone.charge();
@@ -21,5 +23,6 @@ public class Charger extends InventoryItem implements IUsable{
         {
             System.out.println("Как ты хочешь использовать зарядку без телефона?");
         }
+        return null;
     }
 }

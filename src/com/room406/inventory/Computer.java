@@ -1,6 +1,7 @@
 package com.room406.inventory;
 
-import com.room406.inventory.InventoryItem;
+import com.room406.actions.Code;
+import com.room406.actions.IAction;
 
 /**
  * Created by vic on 02.08.15.
@@ -12,7 +13,8 @@ public class Computer extends InventoryItem implements IUsable{
         this.phone = phone;
     }
     @Override
-    public void use() {
-
+    public IAction use() {
+        System.out.println("Ты сел за задание.");
+        return new Code();
     }
 }
