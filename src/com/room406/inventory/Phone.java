@@ -44,5 +44,8 @@ public class Phone extends InventoryItem implements IUsable {
     public void charge()
     {
         isCharged = true;
+        String s = "[Телефон] TA: Задание в приклепленном файле";
+        System.out.println(s);
+        pushMessage(s);
     }
 }

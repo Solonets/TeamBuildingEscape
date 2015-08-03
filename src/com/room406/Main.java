@@ -63,10 +63,10 @@ public class Main {
         Room university317 = new Room("Кабинет 317", "TA нет в университете. Зато он есть в Telegram.", "Обычный кабинет для занятий по программированию", true, false);
         Room holeUniversityFloor4 = new Room("4 этаж университета", "На четвертом этаже находятся кабинеты английского", "много кабинетов и небольшая лужица рядом с лестницей", true, false);
         Room It = new Room("IT отдел", "IT отдел, в нем никого нет", "It Отдел заставлен компьютерами", true, false);
-        It.pushItem(new Computer("%s лежит на столе"));
-        It.pushItem(new Computer("под столом лежит %s"));
-        It.pushItem(new Computer("на подоконике лежит еще один %s"));
-        It.pushItem(new Computer("Еще 20 %sов лежат на полке"));
+        It.pushItem(new Computer(phone, "%s лежит на столе"));
+        It.pushItem(new Computer(phone, "под столом лежит %s"));
+        It.pushItem(new Computer(phone, "на подоконике лежит еще один %s"));
+        It.pushItem(new Computer(phone, "Еще 20 %sов лежат на полке"));
         It.pushAvailableRoom(holeUniversityFloor4);
         holeUniversityFloor4.pushAvailableRoom(It);
         room.pushAvailableRoom(holeCampus);
