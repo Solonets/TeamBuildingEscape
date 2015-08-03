@@ -1,6 +1,6 @@
 package com.room406.inventory;
 
-import com.room406.inventory.InventoryItem;
+import com.room406.actions.IAction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class Phone extends InventoryItem implements IUsable {
     }
 
     @Override
-    public void use() {
+    public IAction use() {
         if (isCharged)
         {
             if (messages.isEmpty())
@@ -36,6 +36,7 @@ public class Phone extends InventoryItem implements IUsable {
         {
             System.out.println("Телефон разряжен, можешь использовать его только чтобы забивать гвозди");
         }
+        return null;
     }
     public void pushMessage(String msg)
     {

@@ -1,6 +1,7 @@
 package com.room406.inventory;
 
-import com.room406.inventory.InventoryItem;
+import com.room406.actions.Code;
+import com.room406.actions.IAction;
 
 /**
  * Created by vic on 02.08.15.
@@ -10,7 +11,7 @@ public class Computer extends InventoryItem implements IUsable{
         super("ноутбук", "ноутбук", "Ты взял компьютер без спросу, будем надееться что камеры не работают", 0, location);
     }
     @Override
-    public void use() {
-
+    public IAction use() {
+        return new Code();
     }
 }

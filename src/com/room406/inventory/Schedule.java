@@ -1,5 +1,7 @@
 package com.room406.inventory;
 
+import com.room406.actions.IAction;
+
 /**
  * Created by user on 03.08.2015.
  */
@@ -8,7 +10,7 @@ public class Schedule extends InventoryItem implements IUsable{
         super("расписание", "расписание", "Это твое расписание", 0, "%s висит на стене");
     }
     @Override
-    public void use() {
+    public IAction use() {
         System.out.println(
                 "+-------+-------------------+--------+\n" +
                 "|       |пн  вт  ср  чт  пт | сб  вс |\n" +
@@ -24,5 +26,6 @@ public class Schedule extends InventoryItem implements IUsable{
                 "| 18-20 +            ужин            +\n" +
                 "+-------+-------------------+--------+\n"
         );
+        return null;
     }
 }
