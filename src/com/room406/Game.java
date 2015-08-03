@@ -23,6 +23,12 @@ public class Game implements Serializable {
     private List<Creep> creeps;
     private List<Event> events = new ArrayList<>();
 
+    private List<Event> events;
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+
     public Room getInitialRoom() {
         return initialRoom;
     }
@@ -45,6 +51,16 @@ public class Game implements Serializable {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public List<Event> getEvents() {
+        List<Event> result = new ArrayList();
+        for (Event event : events) {
+            if (event.getTick() == tick) {
+                result.add(event);
+            }
+        }
+        return result;
     }
 
     public void setPlayer(Player player) {
@@ -116,12 +132,12 @@ public class Game implements Serializable {
         }
         System.out.println(player.getPlace().getDescription());
         //System.out.println();
-        /*for (Creep creep: creeps) {
-            IAction action = creep.getAction();
-            if (action instanceof Move) {
-                creep.place(((Move) action).getRoom());
+        for (Event event: getEvents()) {
+            player.onEvent(event);
+            for (Creep creep : creeps) {
+                creep.onEvent(event);
             }
-        }*/
+        }
         return true;
     }
     public void execute()

@@ -36,6 +36,10 @@ public abstract class Event implements Serializable{
             return String.format("Сейчас %d, %s %s", tick, name, type);
     }
 
+    public int getTick() {
+        return tick;
+    }
+
     public EventType getType() {
         return type;
     }
