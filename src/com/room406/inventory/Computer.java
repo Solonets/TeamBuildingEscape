@@ -7,7 +7,7 @@ import com.room406.inventory.InventoryItem;
  */
 public class Computer extends InventoryItem implements IUsable{
     public Computer(String location) {
-        super("ноутбук", "ноутбук", "Ты взял компьютер без спросу, будем надеятся, что камеры не работают", 0, location);
+        super("ноутбук", "ноутбук", "Ты взял компьютер без спросу, будем надееться что камеры не работают", 0, location);
     }
     @Override
     public void use() {
