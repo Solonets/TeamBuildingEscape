@@ -12,6 +12,7 @@ public class Computer extends InventoryItem implements IUsable{
     }
     @Override
     public IAction use() {
+        System.out.println("Ты сел за задание.");
         return new Code();
     }
 }
