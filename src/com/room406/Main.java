@@ -223,6 +223,7 @@ public class Main {
         Event eventMessageRecieved4 = new PhoneMessageEvent("Телефон", 170, Event.EventType.STARTED, "Лена: собираемся в 310, будет организационное собрание");
         eventList.add(eventMessageRecieved4);
 
+        game.setEvents(eventList);
 
         holeCampus.pushAvailableRoom(room);
         for (int i = 400; i <= 410; i++)

@@ -3,6 +3,7 @@ package com.room406;
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.dialog.Dialog;
+import com.room406.events.Event;
 import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.inventory.InventoryItem;
@@ -20,6 +21,12 @@ public class Game implements Serializable {
     private final int MINUTES_PER_TICK = 5;
     private int tick = 0;
     private List<Creep> creeps;
+
+    private List<Event> events;
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
 
     public Room getInitialRoom() {
         return initialRoom;
@@ -40,6 +47,16 @@ public class Game implements Serializable {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public List<Event> getEvents() {
+        List<Event> result = new ArrayList();
+        for (Event event : events) {
+            if (event.getTick() == tick) {
+                result.add(event);
+            }
+        }
+        return result;
     }
 
     public void setPlayer(Player player) {
@@ -101,12 +118,12 @@ public class Game implements Serializable {
         }
         System.out.println(player.getPlace().getDescription());
         //System.out.println();
-        /*for (Creep creep: creeps) {
-            IAction action = creep.getAction();
-            if (action instanceof Move) {
-                creep.place(((Move) action).getRoom());
+        for (Event event: getEvents()) {
+            player.onEvent(event);
+            for (Creep creep : creeps) {
+                creep.onEvent(event);
             }
-        }*/
+        }
         return true;
     }
     public void execute()

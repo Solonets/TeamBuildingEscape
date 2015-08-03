@@ -1,9 +1,11 @@
 package com.room406.events;
 
+import java.io.Serializable;
+
 /**
  * Created by ������ on 02.08.2015.
  */
-public abstract class Event {
+public abstract class Event implements Serializable {
 
     public enum EventType {
         STARTED("начался"), FINISHED("закончился");
@@ -32,6 +34,10 @@ public abstract class Event {
     @Override
     public String toString() {
             return String.format("Сейчас %d, %s %s", tick, name, type);
+    }
+
+    public int getTick() {
+        return tick;
     }
 
     public EventType getType() {

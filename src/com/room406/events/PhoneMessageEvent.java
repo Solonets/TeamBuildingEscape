@@ -7,7 +7,6 @@ import com.room406.events.Event;
  */
 public class PhoneMessageEvent extends Event {
     private String name;
-    private int tick;
 
     public String getMessage() {
         return message;
@@ -20,9 +19,6 @@ public class PhoneMessageEvent extends Event {
         this.message = message;
     }
 
-    public int getTick() {
-        return tick;
-    }
 
     @Override
     public String toString() {
