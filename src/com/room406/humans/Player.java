@@ -1,5 +1,6 @@
 package com.room406.humans;
 
+import com.room406.actions.Eat;
 import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.events.PhoneMessageEvent;
@@ -7,6 +8,7 @@ import com.room406.events.TeambuildingEvent;
 import com.room406.inventory.InventoryItem;
 import com.room406.Message;
 import com.room406.inventory.Phone;
+import com.room406.rooms.DinnerRoom;
 import com.room406.rooms.Room;
 import com.room406.events.EatEvent;
 import com.room406.events.Event;
@@ -110,6 +112,11 @@ public class Player implements IHuman {
             }
         } else if (command.equals(Message.WATCH_AROUND.toString().toLowerCase())) {
             System.out.println(currentRoom.getDescription());
+        } else if (command.equals(Message.EAT.toString().toLowerCase())) {
+            if (currentRoom instanceof DinnerRoom && isHungry) {
+                isHungry = false;
+                return new Eat();
+            }
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
             String itemString = scanner.nextLine().toLowerCase().trim();
             boolean find = false;
