@@ -46,4 +46,9 @@ public class Answer implements Serializable {
         res.add(dependency);
         return res;
     }
+
+    @Override
+    public String toString() {
+        return message;
+    }
 }

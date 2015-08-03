@@ -13,6 +13,8 @@ public enum Message {
     WATCH_AROUND("Осмотреться"),
     PICED("Взял"),
     HAVE_IT("У тебя достаточно таких предметов"),
+    HAVE_NOT_THIS("Не понимаю, что ты пытаешься сделать. Такого предмета здесь нету!"),
+    CANT_GO_THERE("Я не знаю, как туда пройти"),
     ERROR("Я тебя не понял ");
 
     private String message;

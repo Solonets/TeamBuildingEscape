@@ -22,7 +22,7 @@ public class Creep implements IHuman, Serializable {
     private List<Question> tbQuestions;
     private List<Question> notTbQuestions;
     private int influence;
-    private boolean isTb = false;
+    private boolean isTb = true;
 
     public Room getCurrentRoom() {
         return currentRoom;

@@ -68,17 +68,17 @@ public class Main {
         room.pushAvailableRoom(holeCampus);
 
         Creep lena = new Creep("Лена");
-
+        lena.setInfluence(50);
         InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 10000, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
-        Answer a1 = new Answer("Ну... так вышло", -10, "Пойдем-ка, я тебя провожу");
+        Answer a1 = new Answer("Ну... так вышло", -5, "Пойдем-ка, я тебя провожу");
         q1.addAnswer(a1);
         Answer a2 = new Answer("Не заметил, что он начался...", 0, "Пойдем-ка, я тебя проведу");
         q1.addAnswer(a2);
-        Answer a3 = new Answer("Несу сдавать документы", 10, "Давай я сама отнесу");
+        Answer a3 = new Answer("Несу сдавать документы", 5, "Давай я сама отнесу");
         a3.setDependency(documents);
         q1.addAnswer(a3);
-        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -20, "... Брысь на тимбилдинг");
+        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -10, "... Брысь на тимбилдинг");
         lena.addTbQuestion(q1);
 
         Question q2 = new Question("Привет");
@@ -87,25 +87,97 @@ public class Main {
         lena.addNotTbQuestion(q2);
 
         Creep sasha = new Creep("Саша");
+        sasha.setInfluence(100);
 
         q1 = new Question("Идешь на тимбилдинг сегодня?");
-        a1 = new Answer("Ну ... я кодить собирался...", -20, "Идешь значит!");
+        a1 = new Answer("Ну ... я кодить собирался...", -5, "Идешь значит!");
         q1.addAnswer(a1);
-        a2 = new Answer("Я документы несу, не знаю когда освобожусь", -10, "Ну ты постарайся прийти, а то мы собирались ...");
+        a2 = new Answer("Я документы несу, не знаю когда освобожусь", 3, "Ну ты постарайся прийти, а то мы собирались ...");
         q1.addAnswer(a2);
         q2 = new Question("Привет");
         a1 = new Answer("Привет", 10, "");
         q2.addAnswer(a1);
+        Question q3 = new Question("Ты пришел на наш тимбилдинг)");
+        a1 = new Answer("...", -10, "" +
+                "                                                                                                                                                      \n" +
+                "                                                                                                `..`                                                  \n" +
+                "                                                                                      ``````..-:::::::--:::::--.`                                     \n" +
+                "                                                                                  `.-:::::-------:::::-------------`                                  \n" +
+                "                                                                               `-::-:--.````.-:://:-...`..----::::///-`                               \n" +
+                "                                                                             .-:::--.`` ```.-::::-.`````..--:////oooss+/-.                            \n" +
+                "                                                                           .-:::::-.`   ``.--:::-``   `.-://++++++++oooooo+:`                         \n" +
+                "                                                                         `---::::-.``````.---::-``  ``.-://+ooooo+++//++o+oo+/:-`                     \n" +
+                "                                                                       `.----::::.`````.--::::--````.-://+oosssoo+//::::////+++oo+:`                  \n" +
+                "                                                                      `----:::::-.....--::///:--...-:/++ooosssooo++/:::--:::////+oss/.                \n" +
+                "                                    `...`                            `----:::::::----:-:::///:::::/++ooosssssooo++/::-:::////++///+oso/`              \n" +
+                "            `dmmms-mmmmmmmmmhsmm/`odNNNNNd+`                        .---:::::::::-:----:////:://+ooooossssssooo++//::://+++////++//+oos+`             \n" +
+                "            `mMMMh-mmNMMMMmmysMM:oMMMmomMMM/                      `.---::::/::/::------////:://oosssssssooooo+++//::/+++ooo+++osoo+++oos+`            \n" +
+                "            `mMMMh ``sMMMM-``+h/ yMMMd`sddd/                     `.----:::/::/:-----..://+/:///+oooooooo++++++++//:/+oooossosssssssoooosy:            \n" +
+                "            `mMMMh   oMMMM.  ``  /NMMMmy/.`                      .-:---::/::/:----//:/++++/+/++/+ooooo+++ooooo+++/++ooosssssyyyyyyyyysosyo`           \n" +
+                "            `mMMMh   oMMMM.       :ymMMMMmo`                    .-:----:/:-/:-----::++ooo++++++++ooosoooooosssoo++oosyyyyhhhhhhhhhdhhsssys`           \n" +
+                "            `mMMMh   oMMMM.      .-:/oyNMMMy                   `--:---:::-/:-::-::/+oooooo+++++++oossssssssosyyssyyyyhhdddddddmdddmmdhysyy`           \n" +
+                "            `mMMMh   oMMMM.      oNNNh sMMMm`                  --:::--:/://:::/:/+ooooooo+//+o+++ossssssssssosysyyhdddddddmmmmmmmmmmmddhys`           \n" +
+                "            `mMMMh   oMMMM.      /MMMN/dMMMh                  `--:::-:///+/::://+oooooso/::/+++++oosssssssssoosyyhhdddddmmmmmmmmmmmmmddhys.           \n" +
+                "            `dmmmy   ommmm.       +dNNNMNmy-                  .-:::--://////++++oooosso+::////++++oosssssssssoooyyhhhddmmmmmmmmmmmmmmmmhss.           \n" +
+                "             `````   `````         `.---.`                  .:--:::--:/+///++oooooosso+/::/++++++++oosssssssosssysyyhdmmmmmmmmmmmmNNNmmhso`           \n" +
+                "                                                          ./o/--:::::/++//++ooooossso+/:/+oooo+++ooooosssssssso++ooo+oyhddmmmmmmmNNNNmdys/            \n" +
+                "                                                         -/+s/--:::::/+///+ooooosssoo+:/+ssooooooooooosssyyso/::///////+osyhddmmNNNNNmhys.            \n" +
+                "                        `------.                       `:///o:--:/::/++///+oooosssso++++ossooossoooosssyhhs/+//::::/+++oosssyhdmNNNNNdyy/             \n" +
+                "                        /NNNNNNy                       -ossoo/:-:/::/+++++ooooossso++//ossooossoossssshhyyo++++//++///+oooossyhmmNNNmhyo`             \n" +
+                "                        yMMMMMMm`                      -+++syo:-:/::/++//+ooooosssoo++osssoooosssssyyhyyysooosssoossyyyyyyyyyyyydmNmmhs-              \n" +
+                "                       `mMMNhMMM:                      -o+yNMd+::/:/+/++++oooooossoooosyssssssysyyhyssyhysosyssyyhdmmNNNNdddddhyymmmdh:               \n" +
+                "                       -MMMd+MMMs                      -o+dNNNo:////+/+++++ooooosssyssssssssssyyhhssssyhyssyshddmNMMMMMMMmhhyhhdhdmmds`               \n" +
+                "                       +MMMy-NMMd`                     `ooshyms///////++++++oooossysssso+++++++osssssyhdysyydmdhdMNdmMMMMmhyosydddmmh.                \n" +
+                "                       hMMMhoNMMM-                      /sso++s///////o++++ooooosooosyo/////++++oosyyhddhyyhmddssmmyyMMMmys+/+ymhddd/                 \n" +
+                "                      `NMMMMNMMMMo                      `/yyysss++o+/+s++o+ooooso/+shyoossssssssooosyhddhhyyddhyo+++yhys++/:+sdddddy`                 \n" +
+                "                      :MMMMo-dMMMd                       `/yhsssssso+++++++++oo+/+ohhsooo+osyhyssssoshddhdyyhdhhyo+/://///+shdddddh-                  \n" +
+                "                      /hhhh- ohhhy`                        /hsoooosso+//+++++oo+oshhssoo+::::/syyyysoyddmddhyhhhhhyo++ooyhdddhddmy.                   \n" +
+                "                                                            +oo++osyyo++/+++++oydddhyyhdddhs+/osyhyysyddmmdmdyssyhhhhhddhhyyhdhho.                    \n" +
+                "                                                            :+/sdNdhhsosooooyyhhyysshhhmNMNmdyyyyhhyyyhddmmdddyyyyyyyyyyyhddhys:                      \n" +
+                "                                                           `/+yNMmdhhoooossooo++oossyyhdmMMMNmhysyhyyyyhdmmmddddhhyyyhhhddhhy/`                       \n" +
+                "  .ooooooooo/`+oooo++/-    /ooooo+`  :ooooo+/:` .oooo-      /smNmhhhsoooo+++++++oooossyhdmNMMNmhoohysyysydmmmmmdddhhhhhhhhddo`                        \n" +
+                "  :NMMMMMMMMd-NMMMNNMMNs` `mMMMMMM:  oMMMMNMMMd.:MMMM+      /ymdhhhsoooooooo+++++oooossyyhdNNNNmhsshssoosdmmmmmmmmmmmmmmmdmddho+:-..``                \n" +
+                "  `//hMMMM+/:-NMMMs/MMMN- -MMMNMMMs  oMMMN:sMMM+.MMMM/      :yhyhyssssyyyyyyyyssoooooosyyyhddmNmhsoysooosdmmNNNNNmmmmmmNNNNddmmNNdo:--.`              \n" +
+                "     oMMMN.  .NMMMs:NMMN- +MMMymMMm` oMMMN.oMMM+`NMMM-      .yyyyyhhhdmNNNNNmmddhhysssosyhhhdhhhyhyssyyssdmmmNNNNNNNNNNNNNmmdmmNMMMms:---.`           \n" +
+                "     oMMMN.  .NMMMNNMMmo  hMMM/dMMN- oMMMMhmMMM/ mMMN.      -yyyhhdmNMMMMMMMMMMMNNmmdhhyyyyyhddddhhyyyyhsymdmmNNNmNNNNmNNNmmdmmNMMMMNms----.          \n" +
+                "     oMMMN.  .NMMMhyMMNy``NMMM.sMMMo oMMMMmddy+` dMMN`      :yhdmNNNNmdddhhhyyhdNNMMMMNmmdhhhyyhhhyyyyyhyydhddmNNNNNNNmNNNmNmmmNMMMMMMN+...-.``       \n" +
+                "     oMMMN.  .NMMMo.NMMM-:MMMMhmMMMd`oMMMN-`     hMMm       `oymmmhs+++ooooo+//+oyhdmNNMMNNmmddhhhhhyyyyhyddhdmmmmNNNNmNNmmNNmmmNNNMMMMh``.----``     \n" +
+                "     oMMMN.  .NMMMo.NMMM-oMMMMdmMMMN.oMMMN.      oyys`      `+yhyso++ooooossssssooosyhhdmNNNNNNNNmmmdmdmdyhhdddmmmmmNNmNNmmNNmmmmmmNMMNh``.------`    \n" +
+                "     oMMMN.  .NMMMo.NMMN:dMMMm`:NMMM/oMMMN.     `NMMM-      `-/ooooooooooosoooooooooossyyyhhhddmmmNNNNmdhssyydmmmmmmmmmNNmmNNmmmmmmNMMm:  `-:---.-.`  \n" +
+                "     -++++`  `++++-`++++./+++/ `++++:-++++`      ++++`        .oooooooosssyyssssssssooooossssssssyyyyyssoosyyymmmdmmmmmNNmmmmmmmmmmNNm+`  `.-----.--.`\n" +
+                "                                                               :++ooosssyosssyyyyssssssooooooosssssoo++ooosdhyhmmmmmmdmmNmmmmmmmmmmNd+.    -------.---\n" +
+                "                                                                `./soosss+oooyyssososyysooooooooooooooosoohmmhymmmmmmdmmmmmmmmmmmmmh:`    `--:---.`..-\n" +
+                "                                                                  `+oooooooooosooossyyyysssooooooosssyyyysymmdydmmmdmmmmmdmdddddmmy-      .--:--.`` `.\n" +
+                "                                                                    :oooossososoosssyyyyyssssoooosssssssssydmdydmddddmddddddmmmdh+`      .---:--```` `\n" +
+                "                                                                    `/+oossysssssssssyyyyysssssssssssyyyhhhhdmhmdhhddddddhhdmmdy-       `----...`     \n" +
+                "                                                                    `-../ssyyssssssysyyyyysooooooosssyyyyysyyyyddhyhddhhhhddmh/`      ``.---...       \n" +
+                "                                                                  `..``./+/syssssoossyyyyysooooooooossssyyyhhhhhssyhhhhhhddh+.     ````.----..        \n" +
+                "                                                              ``.--.  ./++/+syyysossssyyyysssssssoossssyyyyysssssyhyyyhdhs/.`      ```.----..         \n" +
+                "                                                          ```.```.`   -o////ohyysoosssssssssssssyyyssssyyyyyyyyyyyyyyyhs:.`      ```..----..`         \n" +
+                "                                                        ````   `..    :o////smyyysooosssssssssssssssssssssssssssyyyyyo-``       ``..-----.``          \n" +
+                "                                                      ..`      .-`    .o+/+/yNNdssssossyyyyyyyyyyyyyyyyyyyyysyyyyyo:.``        `..-----.`            .\n" +
+                "                                                     `.        ..`    `/o/+omNMm+++syyyyyhhhhhhhhhhhdhhhhhhhhhhs+-.``         `..-----.            `..\n" +
+                "                                                     `.`.`     ``      .++/smNMMh//osyhyyyyyhyyyyyyysyyyhhyyso+-``          `...----.`            `...\n" +
+                "                                                      `...      ``     `-oosmNNNmo:+shhhyyysyyhhhhhhhhhhhhyo/.``         `..--.---.`              ``.-\n" +
+                "                                                     ...-.       `      `-/odNNMNh+/shdhhhhhhhhddddmmdddy+:-```        `...-----.`               ``.--\n" +
+                "                                                   `.`..-.               ``-+dmNNdo+shddddddddddmmmdhs+:.``         ``....----.`                 `.--.\n" +
+                "                                                 ..`  `.-.                   ./sdyysyhdddmmmmdddhys/-.`           `.....---.``                  .---.`\n" +
+                "                                                ``    `--.                    ``.-://+ossoo++//:-.`             `.....--..`                    `.--.` \n" +
+                "                                                `      .--`                         ``````` ```              ``....---`                        .--..  \n" +
+                "                                               ``   ```.--.`                            ``                 ```..---.`                         `.-.``  ");
+        q3.addAnswer(a1);
+        sasha.addTbQuestion(q3);
         sasha.addNotTbQuestion(q1);
         sasha.addNotTbQuestion(q2);
 
         Creep timur = new Creep("Тимур");
+        timur.setInfluence(50);
         q1 = new Question("Ты почену не на тимбилдинге?");
-        a1 = new Answer("У нас в общаге крыша протекает", 10000, "Мы работаем над этим");
+        a1 = new Answer("У нас в общаге крыша протекает", 10, "Мы работаем над этим");
         q1.addAnswer(a1);
-        a2 = new Answer("Я хотел чего-нибудь поделать...", -10, "Иди на тимбилдинг");
+        a2 = new Answer("Я хотел чего-нибудь поделать...", -5, "Иди на тимбилдинг");
         q1.addAnswer(a2);
-        a3 = new Answer("Я документы несу", 20, "Хорошо");
+        a3 = new Answer("Я документы несу", 10, "Хорошо");
         q1.addAnswer(a3);
         q2 = new Question("Привет");
         a1 = new Answer("Привет", 10, "");
