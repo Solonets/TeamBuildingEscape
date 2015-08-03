@@ -11,6 +11,7 @@ public class InventoryItem implements Serializable {
     private int influence;
     private String pickMessage;
     private String location;
+    private boolean isPicked = false;
 
     public InventoryItem(String name, String accusative, String pickMessage, int influence, String location) {
         this.name = name;
@@ -18,6 +19,14 @@ public class InventoryItem implements Serializable {
         this.accusative = accusative;
         this.influence = influence;
         this.location = location;
+    }
+    public void pickUp()
+    {
+        isPicked = true;
+    }
+    public boolean isPicked()
+    {
+        return isPicked;
     }
     public void use()
     {

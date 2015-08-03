@@ -16,7 +16,6 @@ import java.util.List;
  * Created by user on 02.08.2015.
  */
 public class Game implements Serializable {
-    private transient final String roomsIni = "Rooms.ini";
     private transient Player player = null;
     private final int MINUTES_PER_TICK = 5;
     private int tick = 0;
@@ -75,8 +74,8 @@ public class Game implements Serializable {
 
     private String tickToTime() {
         int hours = (8 + tick / 12) % 24;
-        int minuts = (tick % 12) * 5;
-        return String.format("%d:%02d", hours, minuts);
+        int minutes = (tick % 12) * 5;
+        return String.format("%d:%02d", hours, minutes);
     }
 
     public List<Creep> getCreeps() {

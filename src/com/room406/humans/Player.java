@@ -97,6 +97,7 @@ public class Player implements IHuman {
                     } else {
                         inventory.add(item);
                         currentRoom.getItem(item);
+                        item.pickUp();
                         System.out.println(item.getPickMessage());
                     }
                     find = true;
