@@ -62,6 +62,7 @@ public class Main {
         It.pushItem(new Computer("%s лежит на столе"));
         It.pushItem(new Computer("под столом лежит %s"));
         It.pushItem(new Computer("на подоконике лежит еще один %s"));
+        It.pushItem(new Computer("Еще 20 %sов лежат на полке"));
         It.pushAvailableRoom(holeUniversityFloor4);
         holeUniversityFloor4.pushAvailableRoom(It);
         room.pushAvailableRoom(holeCampus);
