@@ -8,6 +8,11 @@ import com.room406.events.Event;
 public class PhoneMessageEvent extends Event {
     private String name;
     private int tick;
+
+    public String getMessage() {
+        return message;
+    }
+
     private String message;
     private EventType type;
 

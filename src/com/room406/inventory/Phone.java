@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by vic on 02.08.15.
  */
-public class Phone extends InventoryItem implements IUsable{
+public class Phone extends InventoryItem implements IUsable {
     private boolean isCharged = false;
     private List<String> messages = new ArrayList<>();
     public Phone() {
