@@ -52,7 +52,10 @@ public class Room implements Serializable {
         {
             desc += r.getName() + ", ";
         }
-        return (description) + "\n" + desc;
+        if (isVisited()) {
+            return (description) + "\n" + desc;
+        }
+        return history + "\n" + desc;
     }
 
     public String getName() {

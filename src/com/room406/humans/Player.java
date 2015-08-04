@@ -124,7 +124,12 @@ public class Player implements IHuman {
             }
         } else if (command.equals(Message.WATCH_AROUND.toString().toLowerCase())) {
             System.out.println(currentRoom.getDescription());
-        } else if (command.equals(Message.EAT.toString().toLowerCase())) {
+        }
+        else if (command.equals(Message.WAIT.toString().toLowerCase()))
+        {
+            return new Move(currentRoom);
+        }
+        else if (command.equals(Message.EAT.toString().toLowerCase())) {
             if (currentRoom instanceof DinnerRoom) {
                 if (isHungry) {
                     isHungry = false;

@@ -16,6 +16,7 @@ public enum Message {
     HAVE_NOT_THIS("Не понимаю, что ты пытаешься сделать. Такого предмета здесь нету!"),
     CANT_GO_THERE("Я не знаю, как туда пройти"),
     EAT("кушать"),
+    WAIT("ждать"),
     ERROR("Я тебя не понял ");
 
     private String message;

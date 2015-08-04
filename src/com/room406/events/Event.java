@@ -33,7 +33,7 @@ public abstract class Event implements Serializable{
 
     @Override
     public String toString() {
-            return String.format("Сейчас %d, %s %s", tick, name, type);
+        return String.format("%s %s", name, type);
     }
 
     public int getTick() {

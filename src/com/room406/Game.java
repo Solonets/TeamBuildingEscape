@@ -6,6 +6,7 @@ import com.room406.actions.IAction;
 import com.room406.actions.Move;
 import com.room406.dialog.Dialog;
 import com.room406.events.Event;
+import com.room406.events.SleepEvent;
 import com.room406.humans.Creep;
 import com.room406.humans.Player;
 import com.room406.rooms.Room;
@@ -28,6 +29,7 @@ public class Game implements Serializable {
     private int codeProgress = 0;
     private final int wholeCodeProgress = 10;
     private boolean isPlayerCoding = false;
+    private boolean isSleeping = false;
 
 
     public void setEvents(List<Event> events) {
@@ -71,6 +73,10 @@ public class Game implements Serializable {
 
     public void control()
     {
+        if (isSleeping)
+        {
+            return;
+        }
         IAction action;
         if (isPlayerCoding) {
             if (player.coding()) {
@@ -134,19 +140,18 @@ public class Game implements Serializable {
     public boolean model()
     {
         System.out.println("Сейчас " + tickToTime());
-        System.out.println(String.format("Прогресс задания %d процентов", (codeProgress * 100) / wholeCodeProgress));
+        System.out.println(String.format("Прогресс задания %.2f процентов", (double)codeProgress * 10 / wholeCodeProgress));
         if (!player.getPlace().isVisited())
         {
             if (player.getPlace().isGeneratable())
             {
                 RandomFiller.fillRandomInventory(player.getPlace());
             }
-            System.out.println(player.getPlace().getHistory());
             player.getPlace().setVisited();
-
         }
         System.out.println(player.getPlace().getDescription());
         for (Event event: getEvents()) {
+            onEvent(event);
             boolean result = player.onEvent(event);
             if (!result) {
                 end();
@@ -157,12 +162,45 @@ public class Game implements Serializable {
         }
         return true;
     }
+    private void onEvent(Event e)
+    {
+        if (e instanceof SleepEvent) {
+            SleepEvent s = (SleepEvent) e;
+            if (s.getType() == Event.EventType.STARTED)
+            {
+                System.out.println("Ты лег спать на полу");
+                isSleeping = true;
+            }
+            else
+            {
+                isSleeping = false;
+                System.out.println("Ты проснулся");
+            }
+        }
+    }
 
     private void end() {
         System.out.println("К сожалению, ты не смог закончиить квест. Тебя выгнали из Иннополиса. \nМожешь попробовать в следующем году");
         System.exit(0);
     }
+    private void win()
+    {
+        if (codeProgress >= wholeCodeProgress)
+        {
+            System.out.println("Молодец, ты накодил лабу...");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("Но к сожалению, ты совсем забыл про английский...");
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+            }
+            System.out.println("Тебя выгнали из Иннополиса. \nМожешь попробовать в следующем году");
 
+        }
+    }
     public void execute()
     {
         while (model())
