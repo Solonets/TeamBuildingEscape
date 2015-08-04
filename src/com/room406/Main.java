@@ -15,6 +15,7 @@ import com.room406.rooms.Room;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -79,18 +80,23 @@ public class Main {
         lena.setInfluence(50);
         InventoryItem documents = new InventoryItem("Документы", "Документы", "Это твои документы для перевода", 0, 0, "%s");
         Question q1 = new Question("Ты почену не на тимбилдинге?");
-        Answer a1 = new Answer("Ну... так вышло", -5, "");
+        Answer a1 = new Answer("Ну... так вышло", -5, "_");
         q1.addAnswer(a1);
-        Answer a2 = new Answer("Не заметил, что он начался...", 0, "");
+        Answer a2 = new Answer("Не заметил, что он начался...", 0, "_");
         q1.addAnswer(a2);
         Answer a3 = new Answer("Несу сдавать документы", 5, "Давай я сама отнесу");
         a3.setDependency(documents);
         q1.addAnswer(a3);
-        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -10, "");
+        Answer a5 = new Answer("Не увидел в чате сообщение из-за флуда", 5, "Я же просила не ФЛУДИТЬ!");
+        q1.addAnswer(a5);
+        Answer a4 = new Answer("<Притвориться ниндзя и сделать кувырок>", -10, "_");
+        q1.addAnswer(a4);
+        Answer a6 = new Answer("Там куча web-программистов. Я их боюсь...", -1, "_");
+        q1.addAnswer(a6);
         lena.addTbQuestion(q1);
 
         Question q2 = new Question("Привет");
-        a1 = new Answer("Привет", 10, "");
+        a1 = new Answer("Привет", 1, "");
         q2.addAnswer(a1);
         lena.addNotTbQuestion(q2);
 
@@ -103,10 +109,10 @@ public class Main {
         a2 = new Answer("Я документы несу, не знаю когда освобожусь", 3, "Ну ты постарайся прийти, а то мы собирались ...");
         q1.addAnswer(a2);
         q2 = new Question("Привет");
-        a1 = new Answer("Привет", 10, "");
+        a1 = new Answer("Привет", 1, "");
         q2.addAnswer(a1);
         Question q3 = new Question("Ты пришел на наш тимбилдинг)");
-        a1 = new Answer("...", -1000, "" +
+        a1 = new Answer("...", -10, "" +
                 "                                                                                                                                                      \n" +
                 "                                                                                                `..`                                                  \n" +
                 "                                                                                      ``````..-:::::::--:::::--.`                                     \n" +
@@ -178,18 +184,30 @@ public class Main {
         sasha.addNotTbQuestion(q1);
         sasha.addNotTbQuestion(q2);
 
+        InventoryItem water = new InventoryItem("Протекающее окно", "Протекающее окно", "Надо рассказать Тимуру об этом безобразии.", 0, 0, "%s");
+
         Creep timur = new Creep("Тимур", Creep.CreepSex.MALE);
         timur.setInfluence(50);
         q1 = new Question("Ты почену не на тимбилдинге?");
         a1 = new Answer("У нас в общаге крыша протекает", 10, "Мы работаем над этим");
         q1.addAnswer(a1);
-        a2 = new Answer("Я хотел чего-нибудь поделать...", -5, "");
+        a2 = new Answer("Я хотел чего-нибудь поделать...", -5, "_");
         q1.addAnswer(a2);
         a3 = new Answer("Я документы несу", 10, "Хорошо");
         q1.addAnswer(a3);
+        a4 = new Answer("Сегодня финал по доте", -2, "_");
+        q1.addAnswer(a4);
+        a5 = new Answer("Да я слишком крутой для этого. <Поправляет ручку в переднем кармане>", -10, "_");
+        q1.addAnswer(a5);
+        a6 = new Answer("Я хотел постирать носки...", -2, "_");
+        q1.addAnswer(a6);
+        a4 = new Answer("Они там снимают видео под бренный рок, я же сторонник неблэк-металла...", 3, "_");
+        q1.addAnswer(a4);
         q2 = new Question("Привет");
-        a1 = new Answer("Привет", 10, "");
+        a1 = new Answer("Привет", 1, "");
         q2.addAnswer(a1);
+        timur.addTbQuestion(q1);
+        timur.addNotTbQuestion(q2);
 
         game.addCreep(lena);
         game.addCreep(sasha);
@@ -228,12 +246,16 @@ public class Main {
         game.setEvents(eventList);
 
         holeCampus.pushAvailableRoom(room);
+        int waterRoom = (new Random()).nextInt(6) + 400;
         for (int i = 400; i <= 410; i++)
         {
             if (i != 406)
             {
                 Room r = new Room("Номер " + i, "Это чья-то комната, она почему-то была открыта", "Это чья-то комната", true, true);
                 r.pushAvailableRoom(holeCampus);
+                if (i == waterRoom) {
+                    r.pushItem(water);
+                }
                 holeCampus.pushAvailableRoom(r);
             }
         }

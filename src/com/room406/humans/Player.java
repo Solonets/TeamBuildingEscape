@@ -25,7 +25,7 @@ public class Player implements IHuman {
     private List<InventoryItem> inventory;
     private boolean isHungry;
     private int influence;
-    private int codingSkills = 0;
+    private int codingSkills = 1;
 
     public int getInfluence() {
         int result = influence;
@@ -44,6 +44,7 @@ public class Player implements IHuman {
     }
 
     public void addInfluence(int add) {
+        System.out.println(String.format("Твоя влиятельность увеличелась на %d", add));
         influence += add;
     }
 
@@ -64,6 +65,8 @@ public class Player implements IHuman {
                 isHungry = true;
             } else {
                 if (isHungry) {
+                    isHungry = false;
+                    System.out.println("Ты потерял сознание от голода!");
                     return false;
                 }
             }
@@ -127,7 +130,7 @@ public class Player implements IHuman {
                     isHungry = false;
                     return new Eat();
                 }
-                System.out.println("Я и так полноват. Пожалуй не буду кушать больше.");
+                System.out.println("Живот уже болит. Пожалуй не буду кушать больше.");
             }
             System.out.println("Тут нету еды.");
         } else if (command.equals(Message.PICK.toString().toLowerCase())) {
@@ -155,6 +158,20 @@ public class Player implements IHuman {
             System.out.println(Message.ERROR);
         }
         return null;
+    }
+
+    public boolean coding() {
+        System.out.println("Надо кодить!");
+        System.out.println(">> ");
+        String command = scanner.nextLine().trim();
+        if (command.isEmpty()) {
+            return true;
+        } else if (command.toLowerCase().equals("закончить")) {
+            System.out.println("Пора закругляться");
+            return false;
+        }
+        System.out.println("Ты бормочешь что-то непонятное. Если хочешь закончить и заняться другими делами, просто скажи.");
+        return true;
     }
 
     public boolean hasItem(InventoryItem item) {

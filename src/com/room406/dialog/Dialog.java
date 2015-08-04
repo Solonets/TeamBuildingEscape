@@ -55,7 +55,8 @@ public class Dialog {
     }
 
     public boolean dialog() {
-        System.out.println(creep + " находится в этом помещении");
+        System.out.println("Твоя влиятельность: " + player.getInfluence());
+        System.out.println(creep + " находится в этом помещении (влиятельность " + creep.getInfluence() + ")");
         System.out.println("Увидев тебя, он(а) быстро подходит к тебе");
         List<Question> questions = creep.getQuestions();
         Question question = questions.get(random.nextInt(questions.size()));
@@ -74,18 +75,22 @@ public class Dialog {
         int battleInfluence = 0;
         int creepInfluence = creep.getInfluence();
         int playerInfluence = player.getInfluence() + battleInfluence;
-        boolean result = (playerInfluence + creepInfluence > 0
-                && random.nextInt(playerInfluence + creepInfluence) < playerInfluence);
-        if (battleInfluence > 0) {
-            player.addInfluence(battleInfluence);
-        }
-        if (result) {
-            if (answerNumber >= answers.size() || answerNumber < 0) {
-                System.out.println("Ты промолчал. " + creep + " посмотрел(а) на тебя с высока.");
-            } else {
-                System.out.println(player + ": " + answers.get(answerNumber));
-                battleInfluence += answers.get(answerNumber).getInfluence();
-                if (!answers.get(answerNumber).getAnswer().isEmpty()) {
+        boolean result = true;
+        if (answerNumber >= answers.size() || answerNumber < 0) {
+            System.out.println("Ты промолчал. " + creep + " посмотрел(а) на тебя с высока.");
+        } else {
+            System.out.println(player + ": " + answers.get(answerNumber));
+            battleInfluence += answers.get(answerNumber).getInfluence();
+            if (battleInfluence > 0) {
+                player.addInfluence(battleInfluence);
+            }
+            if (answers.get(answerNumber).getDependency() != null) {
+                result = true;
+            } else if (!answers.get(answerNumber).getAnswer().isEmpty()) {
+                int rnd = random.nextInt(playerInfluence + creepInfluence);
+                result = (playerInfluence + creepInfluence > 0
+                        && rnd < playerInfluence);
+                if (!result) {
                     System.out.println(creep + ": " + answers.get(answerNumber).getAnswer());
                 }
             }
