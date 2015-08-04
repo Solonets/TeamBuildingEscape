@@ -27,7 +27,7 @@ public class Game implements Serializable {
     private List<Event> events = new ArrayList<>();
 
     private int codeProgress = 0;
-    private final int wholeCodeProgress = 10;
+    private final int wholeCodeProgress = 100;
     private boolean isPlayerCoding = false;
     private boolean isSleeping = false;
 
@@ -158,6 +158,18 @@ public class Game implements Serializable {
             }
             for (Creep creep : creeps) {
                 creep.onEvent(event);
+            }
+        }
+        for (Creep creep : creeps) {
+            Move a = (Move) creep.getAction();
+            creep.place(a.getRoom());
+        }
+        if (tick >= 470) {
+            if (codeProgress >= wholeCodeProgress
+                    && player.getPlace().getName().toLowerCase().equals("кабинет 317")) {
+                win();
+            } else {
+                end();
             }
         }
         return true;
